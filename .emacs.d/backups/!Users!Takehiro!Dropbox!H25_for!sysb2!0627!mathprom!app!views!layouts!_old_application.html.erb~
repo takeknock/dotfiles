@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mathprom</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrapper">
+	<div id="header">
+		<h1>岡本・阿部研究室図書管理サービス</h1>
+		<div id="menu_bar">
+		  <%= render :partial => 'shared/menu_bar'%>
+		</div>
+	</div>
+	<div id="container">
+	  <div id="content">	
+		<%= yield :layout %>	  
+	  </div>
+	  <div id="side_bar">
+		<%= render :partial => 'shared/login_form'%>
+	  	<%= render :partial => 'shared/side_bar'%>
+	  </div>
+	</div>
+  </div>
+
+</body>
+</html>

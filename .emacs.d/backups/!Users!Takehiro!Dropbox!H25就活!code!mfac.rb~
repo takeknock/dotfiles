@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+#ある時刻（0..23）が指定した時間の範囲内に含まれるか調べる
+#ライブラリ使用不可
+
+#input(time, start, end)
+#output(含むor含まない)
+#constrict (st <= time < ed), st==ed? 含む. 
+
+
+time, st, ed = gets.split(" ").map{|x| x.to_i}
+flg = false
+
+sub = ed - st
+if sub > 0 then
+  if st <= time && time < ed then
+    flg = true
+  end
+elsif sub == 0 then
+  if st == time then
+    flg = true
+  end
+else
+  if (st <= time && time <= 23) || (0 <= time && time < ed) then
+    flg = true
+  end
+end
+
+return flg
+
+  

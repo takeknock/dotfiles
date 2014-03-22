@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+# T = 1/x mod yのy, x をコマンドライン引数にとって、Tを計算するコード
+#使い方:
+#ruby search_comp_multi.rb y x 
+class A
+  def search
+    i=1
+    x=1
+    while i < 100000000 do
+      x += ARGV[0].to_i*i
+      if x%ARGV[1].to_i==0 then
+        puts i
+        $x = x/ARGV[1].to_i
+        puts x/ARGV[1].to_i
+        break
+      end
+      i+=1
+    end
+  end
+  def calc
+  
+  end
+  
+end
+
+A.new.search

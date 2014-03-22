@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+#4/25分、課題2_11
+class MyArray < Array
+  def ==(b)
+    i = 0
+    flg = true
+    self.each{|x|
+      if x.equal?(b[i]) then
+      else
+        flg = false
+        break
+      end
+      i += 1
+    }
+    return flg
+  end
+end
+
+#チェック部分
+class T
+end
+
+s1 = "xyz"
+s2 = "xyz"
+
+a = MyArray.new()
+a[0] = 2
+a[1] = s1
+a[2] = T
+
+b = MyArray.new()
+b[0] = 2
+b[1] = s2
+b[2] = T
+
+if a == b then
+  puts "TRUE!"
+else
+  puts "FALSE!"
+end
+
+

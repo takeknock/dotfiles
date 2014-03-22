@@ -1,0 +1,11 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: figure
+# key: fig
+# --
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=.4,bb=0 0 800 600,clip]{${1: hoge.png}}
+\end{center}
+\caption{${2:caption}}
+\label{fig:${3:1}}
+\end{figure}

@@ -1,0 +1,43 @@
+class card(){
+    char title[100], author[100];
+    int n[100];
+    int tos=0;
+public:
+    void store();
+    void show();
+
+}
+
+void card::store(char title, cahr author, int n){
+    title[tos] = title;
+    author[tos] = author;
+    n[tos] = n;
+    tos++;
+}
+
+void card::show(){
+    if(tos==0){
+        cout << "図書はありません" << endl;
+        return 0;
+    }
+    tos--;
+    return title[tos], author[tos], n[tos];
+}
+
+int main(){
+    card c1, c2;
+    int i;
+
+    c1.store(テスト, みます, 3);
+    c1.store(テスト, みます, 3);
+    c1.store(テスト, みます, 3);
+    c2.store(三国志演義, goryugo, 1);
+    for (int i = 0; i < 3 ; ++i)
+    {
+        cout << "c1のインデックスを見る：" << c1.show() << endl;
+    }
+    for (int i = 0; i < 1; ++i)
+    {
+        cout << "c2のインデックスを見る：" << c2.show() << endl;
+    }
+}

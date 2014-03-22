@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+	<meta charset="UTF-8" />
+	<title>登録済み本の検索</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" media="screen, projection" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.min.js"></script>　
+  </head>
+  <body>
+	<div class="container">
+	  任意の項目を埋めて検索して下さい。
+	  <form class="form-search " method="" id="" action="./">
+		<div class="control-group">
+		  <label class="control-label">本のタイトル</label>
+		  <input type="text" class="controls input-large" name="" value="" />
+		</div>
+		<div class="control-group">
+		  <label class="control-label">購入期間指定</label>
+		  <select class="controls">
+			<option>１週間以内</option>
+			<option>１ヶ月以内</option>
+			<option>半年以内</option>
+			<option>１年以内</option>
+			<option>それ以前</option>
+		  </select>
+		</div>
+		<div class="control-group">
+		  <label class="control-label">購入者指定</label>
+		  <select class="controls">
+			<option>岡本龍明</option>
+			<option>阿部正幸</option>
+			<option>廣政良</option>
+			<option>谷村忠俊</option>
+			<option>丹後偉也</option>
+			<option>三桝雄大</option>
+		  </select>
+		</div>
+		<button type="submit" class="btn btn-primary">検索する</button>
+		
+	  </form>
+	</div>
+  </body>
+</html>

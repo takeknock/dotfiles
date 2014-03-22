@@ -1,0 +1,29 @@
+# name: competitive programing contest template
+# key: cpt
+# --
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+
+using namespace std;
+
+typedef long long ll;
+
+#define REP(i,n) for(int i=0;i<(int)n;++i)
+int main(){
+	
+
+	return 0;
+}
+$0

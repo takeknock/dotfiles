@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+	<meta charset="UTF-8" />
+	<title>report1-2</title>
+  </head>
+  <body>
+	<form method="POST" id="" action="#">
+	  <p>氏名：<input type="text" name="" value="" color="pink"/><font color="red">※入力必須</font></p>
+	  <p>ふりがな：<input type="text" name="" value="" /><font color="red">※入力必須</font></p>
+	 <p> メールアドレス：<input type="text" name="" value="" /><font color="red">※入力必須</font></p>
+	 <p> 住所：<input type="" name="" value="" /></p>
+	  <input width="400" type="submit" name="" value="送信する" />
+	</form>
+  </body>
+</html>

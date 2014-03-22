@@ -1,0 +1,23 @@
+Host github.com
+User git
+Hostname github.com
+IdentityFile ~/.ssh/github_id_rsa
+
+Host kudpc
+HostName laurel.kudpc.kyoto-u.ac.jp
+User a0076516
+LocalForward 5500 localhost:5500
+IdentityFile ~/.ssh/id_rsa
+
+
+Host honeypot
+HostName 133.242.17.188
+User ubuntu
+Port 722
+
+Host forward.kuins
+HostName forward.kuins.kyoto-u.ac.jp 
+User a0076516
+LocalForward 8080 proxy.kuins.net:8080
+IdentityFile ~/.ssh/id_rsa
+

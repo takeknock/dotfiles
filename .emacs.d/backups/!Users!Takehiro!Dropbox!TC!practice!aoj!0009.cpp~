@@ -1,0 +1,31 @@
+//n以下の数で素数はいくつあるか
+
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int cnt=0;
+    int flgprime[n];
+    for(int i=0;i<n;i++){
+        flgprime[i]=1;
+    }
+
+    flgprime[0]=0;
+
+    for(int i=0;i*i<=n;i++){
+        if(flgprime[i]==1){
+            for(int j=2; j*(i+1) <= n ; j++){            
+                flgprime[j*(i+1)-1]=0;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        if(flgprime[i]==1){
+            cnt++;
+//            cout << i+1 << endl;
+        }
+    }
+    cout << cnt << endl;
+    return 0;
+}

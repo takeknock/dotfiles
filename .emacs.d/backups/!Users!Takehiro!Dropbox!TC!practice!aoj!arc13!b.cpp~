@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+#define FOR(i,n) for(int i=0;i<(int)n;++i)
+#define REP(i,n) for(int i=(int)n;i>0;--i)
+    
+int main(){
+    int c, n[c+1], m[c+1], l[c+1];
+    cin >> c;
+    for (int i = 0; i < c; ++i)
+    {
+        cin >> n[i] >> m[i] >> l[i];
+    }
+    sort(n.begin(), n.end());
+    sort(m.begin(), m.end());
+    sort(l.begin(), l.end());
+
+    int m0, m1, m2;
+    for (int i = c; i >c-4 ; --i)
+    {
+        
+    }
+    
+	return 0;
+}
+

@@ -1,0 +1,106 @@
+# -*- coding: utf-8 -*-
+ #課題3_10
+ module MM
+   def initialize
+     puts "モジュールMMがサーチされた"
+   end
+   def mm
+  end
+end
+module NN
+  def initialize
+    puts "モジュールNNがサーチされた"
+  end
+  def nn
+  end
+end
+
+module M
+  def initialize
+    puts "クラスMがサーチされた"
+  end
+  include MM
+  def m
+    mm
+  end
+end
+
+module N
+  def initialize
+    puts "クラスMがサーチされた"
+  end
+  include NN
+  def n
+    nn
+  end
+end
+
+
+class A
+  def initialize
+    puts "クラスAがサーチされた"
+  end
+  def a
+  end
+end
+class B < A
+  def initialize
+    puts "クラスBがサーチされた"
+  end
+  include N
+  def b
+
+    n
+  end
+end
+class C < B
+  def initialize
+    puts "クラスCがサーチされた"
+  end
+  include M
+  def c
+    puts "---------------"
+    mm
+=begin
+    puts "---------------"
+    n
+    puts "---------------"
+    nn
+    puts "---------------"
+    a
+    puts "---------------"
+    b
+=end
+  end
+end
+
+x=C.new
+x.c
+#y=B.new
+#y.b
+#z=A.new
+#z.a
+
+=begin
+問題に書かれているとおりにプログラムを組み、どのメソッドが呼び出されているか確かめるために、それぞれのモジュール内のメソッド、クラス内のメソッドに出力処理を書き加えた。さらに、クラスCのメソッドcにインクルードしたモジュールのメソッド（m, n）、親クラスのメソッド（a, b）を実行する処理を加えた。
+出力した結果は、以下のようになった。メソッドサーチ？
+モジュールをincludeする前に
+
+たどっていることをどうやって確かめたらよい？（出力処理でいける？）
+
+
+出力結果
+クラスCがサーチされた
+---------------
+クラスMがサーチされた
+モジュールMMがサーチされた
+---------------
+クラスNがサーチされた
+モジュールNNがサーチされた
+---------------
+クラスAがサーチされた
+---------------
+クラスBがサーチされた
+クラスNがサーチされた
+モジュールNNがサーチされた
+=end

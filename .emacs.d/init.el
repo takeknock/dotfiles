@@ -6,230 +6,119 @@
 (setq-default buffer-file-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(unless (eq window-system 'mac)
-  (setq default-input-method "japanese-anthy"))
-
-(setq load-path (cons (expand-file-name "~/.emacs.d/") load-path))
-(server-start)
-
-;;ファイル名の設定（Mac）
-(when (eq system-type 'darwin)
-  (require 'ucs-normalize)
-  (set-file-name-coding-system 'utf-8-hfs)
-  (setq locale-coding-system 'utf-8-hfs))
-;;-----------
-
-;;カラム番号の表示
+;;基本設定
+;モードラインに行番号表示
 (column-number-mode t)
-;;行番号の表示
-(line-number-mode t)
-;;行番号を常に左に表示
+;タブの表示幅
+(setq-default tab-width 4)
+;横の行番号の表示
 (global-linum-mode t)
 
-(setq c-tab-always-indent t)
-(setq default-tab-width 4)
-(setq indent-line-function 'indent-relative-maybe) ; 前と同じ行の幅にインデント
+;;cl-libエラーへの対処（http://stackoverflow.com/questions/20678847/cannot-load-cl-lib-at-emacs-startup）
+(add-to-list 'load-path "~/.emacs.d/elisp/cl-lib/")
+(require 'cl-lib)
 
-(setq mac-allow-anti-aliasing nil)  ; mac 固有の設定
-(setq mac-option-modifier 'meta) ; mac 用の command キーバインド
-;; (mac-key-mode 1) ; MacKeyModeを使う
+;elispフォルダをパスに追加
+(add-to-list 'load-path
+	     (expand-file-name "~/.emacs.d/elisp/"))
 
-(global-set-key "\C-x\C-i" 'indent-region) ; 選択範囲をインデント
-(global-set-key "\C-m" 'newline-and-indent) ; リターンで改行とインデント
-(global-set-key "\C-j" 'newline)  ; 改行
+;;auto-installの設定（『Emacs実践入門』、http://d.hatena.ne.jp/rubikitch/20091221/autoinstall）
+(require 'auto-install)
+;インストール場所の指定
+(setq auto-install-directory "~/.emacs.d/elisp/")
+;emacswikiに記載されてるelist名取得
+(auto-install-update-emacswiki-package-name t)
+(auto-install-compatibility-setup)
 
-(global-set-key "\C-cc" 'comment-region)    ; C-c c を範囲指定コメントに
-(global-set-key "\C-cu" 'uncomment-region)  ; C-c u を範囲指定コメント解除に
+;;Auto Completeの設定（『Emacs実践入門』）
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict")
+;(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+(ac-config-default)
 
-(define-key global-map (kbd "C-c l") 'toggle-truncate-lines);折り返しtoggleコマンド
-(define-key global-map (kbd "C-t") 'other-window);;"C-x o"→"C-t"。初期値はtranspose-cars
-
-;;ハイライト設定
-(setq show-paren-delay 0)
-(show-paren-mode t) ; 対応する括弧を光らせる。
-(setq show-paren-style 'expression);expressionで括弧内も強調表示
-(set-face-background 'show-paren-match-face "color-52")
-(transient-mark-mode t) ; 選択部分のハイライト
-
-(setq require-final-newline t)          ; always terminate last line in file
-(setq default-major-mode 'text-mode)    ; default mode is text mode
-
-(setq completion-ignore-case t) ; file名の補完で大文字小文字を区別しない
-(setq partial-completion-mode 1) ; 補完機能を使う
-
-(set-frame-parameter nil 'alpha 85)
-;;(set-frame-parameter nil 'fullscreen 'fullboth) ;;フルスクリーン
-
-;; スタートアップメッセージを非表示
-(setq inhibit-startup-message t)
-(if window-system (progn
-										; ツールバーの非表示
-					(tool-bar-mode nil)))
-
-;;タイトルバーにフルパス表示
-(setq frame-title-format "%f")
-
-;;(if (eq window-system 'mac) (require 'carbon-font))
-;;(fixed-width-set-fontset "osaka" 10)
-
-(if window-system (progn
-					(setq initial-frame-alist '((width . 190) (height . 55)
-												(top . 0) (left . 30)))
-					(set-cursor-color "Gray")
-					))
-
-;;バックアップの設定 ;;c++ファイルがセーブ出来なくなったので、この設定を一時凍結中→凍結解除
-(add-to-list 'backup-directory-alist
-	  (cons "." "~/.emacs.d/backups/"))
-(setq auto-save-file-name-transforms
-	  `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
-
-;(setq backup-inhibited t)
-;(setq make-backup-files nil)
-;;~を作らない↑#を作らない
-;(setq auto-save-default nil)
-
-;;~/.emacs.d/elispディレクトリをロードパスに追加する
-(add-to-list 'load-path "~/.emacs.d/elisp")
-
-;;load-pathを追加する関数を定義
-(defun add-to-load-path (&rest paths)
-  (let (path)
-	(dolist (path paths paths)
-	  (let ((default-directory
-			  (expand-file-name (concat user-emacs-directory path))))
-		(add-to-list 'load-path default-directory)
-		(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-			(normal-top-level-add-subdirs-to-load-path))))))
-
-;;引数のディレクトリとそのサブディレクトリをload-pathに追加
-(add-to-load-path "elisp" "conf" "public_repos")
-
-;;http://coderepos.org/share/browser/lang/elisp/init-loader/init-loader.el
-(require 'init-loader)
-(init-loader-load "~/.emacs.d/conf");設定ファイルのあるディレクトリ指定
-
-;;PATHの設定
-(add-to-list 'exec-path "/opt/local/bin")
-(add-to-list 'exec-path "/usr/local/bin")
+;;yasnippetの設定（http://fukuyama.co/yasnippet）
+;yasnippetを置いているフォルダにパスを通す
+(add-to-list 'load-path
+	     (expand-file-name "~/.emacs.d/elisp/yasnippet"))
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets" ;自作スニペット置くとこ
+        "~/.emacs.d/elisp/yasnippet/snippets";デフォルトのスニペット置き場
+))
+;global-modeで起動
+(yas-global-mode 1)
+;TABキーで展開する
+(custom-set-variables '(yas-trigger-key "TAB"))
+;既存スニペットを挿入する
+(define-key yas-minor-mode-map (kbd "C-x i i") 'yas-insert-snippet)
+;新規スニペットを作成するバッファを用意する
+(define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
+;既存スニペットを閲覧・編集する
+(define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
 
 
-;;package.elの設定
-(when (require 'package nil t)
-  (add-to-list 'package-archives
-			   '("marmalade" . "http://marmalade-repo.org/packages/"))
-  (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/"))
-  (package-initialize))
-
-;;auto-install.elの設定
-;(require 'auto-install)
-(when (require 'auto-install nil t)
-  (setq auto-install-directory "~/.emacs.d/elisp/") ;インストールディレクトリの設定
-  (auto-install-update-emacswiki-package-name t)    ;EmacsWikiに登録されているelispの名前を取得する
-  ;(setq url-proxy-services '(("http" . "localhost:8339"))) ;プロキシの設定
-  (auto-install-compatibility-setup))
-
-;;common style
-(add-hook 'c-mode-common-hook
-		  (lambda()
-			(set-face-foreground 'font-lock-function-name-face "brightcyan");関数名を水色に
-			(c-set-style "stroustrup")))
-
-;; C++ style
-(add-hook 'c++-mode-hook
-          '(lambda()
-             (c-set-style "stroustrup")
-             (setq indent-tabs-mode nil)     ; インデントは空白文字で行う（TABコードを空白に変換）
-             (c-set-offset 'innamespace 0)   ; namespace {}の中はインデントしない
-			 (c-set-offset 'arglist-intro'+) ;'+はc-basic-offsetの値を利用する設定
-             (c-set-offset 'arglist-close 0) ; 関数の引数リストの閉じ括弧はインデントしない
-			 ;(set-face-foreground 'font-lock-preprocessor-face "color-24");#includeを濃い青を薄くした色に
-             ))
-
-;; tex の設定
-;;(require 'tex-site)
-;;(setq TeX-default-mode 'japanese-latex-mode)
-;;(setq japanese-TeX-command-default "pTeX")
-;;(setq japanese-LaTeX-command-default "pLaTeX")
-;;(setq japanese-LaTeX-default-style "jsarticle")
-;;(setq-default TeX-master nil)
-;;(setq TeX-parse-self t)
-;;(add-to-list 'TeX-output-view-style
-;;'("^dvi$" "." "dvipdfmx %dS %d && open %s.pdf"))
-
-;; erlangの設定
-(setq load-path (cons  "/opt/local/lib/erlang/lib/tools-2.6.6.2/emacs"
-					   load-path))
-(setq erlang-root-dir "/opt/local")
-(setq exec-path (cons "/opt/local/bin" exec-path))
-;;      (require 'erlang-start)
-
-;;emacs-lisp-modeの設定
-(defun elisp-mode-hooks()
-  "lisp-mode-hooks"
-  (when (require 'eldoc nil t)
-	(setq eldoc-idle-delay 0.2)
-	(setq eldoc-echo-area-use-multiline-p t)
-	(turn-on-eldoc-mode)))
-
-;;face-listの設定
-;;(require 'face-list)
-
-;;zen-codingの設定
-;;(require 'zencoding-mode)
-;;(add-hook 'xml-mode-hook 'zencoding-mode)
-;;(add-hook 'sgml-mode-hook 'zencoding-mode)
-;;(add-hook 'html-mode-hook 'zencoding-mode)
-;;(define-key zencoding-mode-keymap (kbd "<C-return>") nil)
-;;(define-key zencoding-mode-keymap (kbd "<S-return>") 'zencoding-expand-line)
-
-;;yasnippetの設定
-;;(require 'yasnippet)
-;;(yas/initialize)
-;;(yas/load-directory "~/.emacs.d/elisp/yasnippet/snippets/")
-
-;;redo+の設定
-(when (require 'redo+ nil t)
-  (global-set-key (kbd "C-.") 'redo))
-
-;;anythingの設定
-(when (require 'anything nil t)
-  (setq
-   anything-idle-delay 0.3
-   anything-input-idle-delay 0.2
-   anything-candidate-number-limit 100
-   anything-quick-update t
-   anything-enable-shortcuts 'alphabet)
-
-  (when (require 'anything-config nil t)
-	;;root権限でアクションを実行するときのコマンド。デフォルトは"su"
-	(setq anything-su-or-sudo "sudo"))
-
-  (require 'match-plugin nil t)
-
-  (when (and (executable-find "cmigemo")
-			 (require 'migemo nil t))
-	(require 'anything-migemo nil t))
-
-  (when (require 'anythng-complete nil t)
-	(anything-lisp-complete-symbol-set-timer 150));;lispシンボルの補完候補の再検索時間
-
-  (require 'anything-show-completion nil t)
-
-  (when (require 'auto-install nil t)
-	(require 'anything-auto-install nil t))
-
-  (when (require 'descbinds-anything nil t)
-	(descbinds-anything-install)));;describe-bindingsをAnythingに置き換える
-
-;;auto-completeの設定
-(when (require 'auto-complete-config nil t)
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict")
-  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-  (ac-config-default))
-
-;;cua-modeの設定 ;;←なんか反応しない
-(cua-mode t);cua-modeをオン
-(setq cua-enable-cua-keys nil) ;CUAキーバインドを無効にする
+;;Anythingの設定
+(require 'anything)
+;emacsコマンドを表示する
+(require 'anything-config)
+(add-to-list 'anything-sources 'anything-c-dource-emacs-commands);anything-sources(標準のソース一覧)にanything-c-source-emacs-commands(emacsコマンドを表示するためのソース)を追加
 
 
+;;********anything interface（anythingとyasnippetの連携）;;まだ対応できてない+内容理解できてない（内容に関して参考文献：http://d.hatena.ne.jp/sugyan/20120111/1326288445）
+;（http://ochiailab.blogspot.jp/2012/12/yasnippet.html）
+(eval-after-load "anything-config"
+  '(progn
+     (defun my-yas/prompt (prompt choices &optional display-fn)
+        (let* ((names (loop for choice in choices
+			    collect (or (and display-fn (funcall display-fn choice))
+					choice)))
+	       (selected (anything-other-buffer
+			  '(((name . ,(format "%s" prompt))
+			     (candidates . names)
+			     (action . (("Insert snippet" . (lambda (arg) arg))))))
+			  "*anything yas/prompt*")))
+	  (if selecter
+	      (let ((n (position selected names :test 'equal)))
+		(nth n choices))
+	    (signal 'quit "user quit!"))))
+  (custom-set-variables '(yas/prompt-functions '(my-yas/prompt)))
+  (define-key anything-command-map (kbd "y") 'yas/insert-snipper)))
+
+
+;;smart-compileの設定
+(require 'smart-compile)
+(setq smart-compile-alist
+      (append
+       '(("\\.rb$" . "ruby %f"))
+       smart-compile-alist))
+(define-key ruby-mode-map (kbd "C-c c") 'smart-compile)
+(define-key ruby-mode-map (kbd "C-c C-c") (kbd "C-c c C-m"))
+
+
+;;;flymakeの設定
+;;*******Ruby用flymakeの設定（書いてある内容わかってない）
+
+(defun flymake-ruby-init()
+  (list "ruby" (list "-c" (flymake-init-create-temp-buffer-copy
+					 'flymake-create-temp-inplace))))
+(add-to-list 'flymake-allowed-file-name-masks
+			 '("\\.rb\\'" flymake-ruby-init))
+(add-to-list 'flymake-err-line-patterns
+			 '("\\(.*\\):(\\([0-9]+\\)): \\(.*\\)" 1 2 nil 3))
+
+;;;矩形関係の設定
+;;cua-mode
+(cua-mode t)
+(setq cua-enable-cua-keys nil)
+
+;;
+
+
+;;;C-x bでミニバッファにバッファ候補を表示
+;（http://e-arrows.sakura.ne.jp/2010/02/vim-to-emacs.html）
+(iswitchb-mode t)
+
+
+;;;todo
+;デバッグ機能追加
+;smartcompile追加(c++にも)

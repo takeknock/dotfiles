@@ -1,0 +1,37 @@
+//ケタ多すぎなので、そのまま数字として扱うのは無理
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+int main(){
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i)
+    {
+        ll a=0, b=0;
+//        scanf("%ld\n %ld\n", &a, &b);
+        //     printf("%ld\n", a+b);
+        cin >> a >> b;
+        if((a+b) >(10^79))
+            cout << "overflow" << endl;
+        else
+            cout << a+b << endl;
+    }
+	return 0;
+}
+

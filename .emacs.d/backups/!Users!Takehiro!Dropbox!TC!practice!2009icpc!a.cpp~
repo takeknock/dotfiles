@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int player[50];
+int main(){
+    int N,P;
+    while(true){
+        
+      cin >> N>>P;
+      if(N == 0) return 0;
+      
+      int i = 0;
+      int cup = P;
+      memset(player, 0, sizeof(player));
+      while(true){
+          if(cup!= 0){
+              cup--;
+              player[i]++;
+              if(player[i] == P){
+                  cout << i << endl;
+                  break;
+              }
+          }else{
+              cup= player[i];
+              player[i] = 0;
+          }
+
+          i++;
+          i = i % N;
+      }
+      
+      
+    }
+    return 0;
+}

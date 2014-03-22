@@ -1,0 +1,7 @@
+\documentclass[titlepage][jreport]
+\title[TITLE]
+\author[AUTHOR]
+\date[DAY]
+\begin{document}
+  \maketitle
+\end{document}

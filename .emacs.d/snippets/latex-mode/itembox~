@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: itembox
+# key: itembox
+# --
+\begin{itembox}[l]{$0}
+$1
+\end{itembox}

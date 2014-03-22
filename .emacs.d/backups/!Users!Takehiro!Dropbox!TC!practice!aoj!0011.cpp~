@@ -1,0 +1,35 @@
+//シミュレーション
+//コンマで区切られた数値の読み込み方はどうすればいいんだろう？
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+typedef long long ll;
+
+#define FOR(i,n) for(int i=0;i<(int)n;++i)
+#define REP(i,n) for(int i=(int)n;i>0;--i)
+int main(){
+    int w, n;
+    int a[w+1];
+    cin >> w >> n;
+    for (int i = 0; i < w; ++i)
+    {
+        a[i] = i+1;
+    }
+    //指定されたものをスワップしていくだけ
+    int f, l;
+    char c;
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> f >> c >> l;
+        swap(a[f-1], a[l-1]);
+    }
+    for (int i = 0; i < w; ++i)
+    {
+        cout << a[i] << endl;
+    }
+    
+	return 0;
+}
+

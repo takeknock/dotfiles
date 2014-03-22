@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+int main(){
+    int n, q;
+    int date[100];
+    while(cin>>n>>q && (n || q)){
+        for (int i = 0; i < n; ++i){
+            int m;
+            cin >> m;
+            vector<int> a;
+            for (int j = 0; j < m; ++j){
+                for (int k = 0; k < 100; ++k){
+                    date[k]=0;
+                }
+                int d;
+                cin >> d;
+                date[d]++;
+                
+            }
+        }
+        int max=0, ans;
+        for (int i = 99 ; i >= 0; --i){
+            if (max < date[i]){
+                ans = i;
+            }
+        }
+        if (max < q){
+            cout << 0 << endl;
+        }else
+            cout << max << endl;
+
+    }
+    
+	return 0;
+}
+

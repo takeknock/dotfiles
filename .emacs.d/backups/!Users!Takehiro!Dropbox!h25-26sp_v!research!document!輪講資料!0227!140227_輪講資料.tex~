@@ -1,0 +1,49 @@
+% !TEX encoding = JISJapanese
+\documentclass[a4paper, 11pt]{jarticle}
+%\documentclass[14pt, dvips, handout]{beamer}
+\usepackage{amsmath,amssymb}
+\usepackage[framed,thmmarks]{ntheorem}
+\usepackage{framed}
+\usepackage{color}
+\usepackage{ascmac}
+\usepackage{fancybx}
+ \usepackage[dvips]{graphicx}
+ \usepackage{multicol}
+ \usepackage{latexsym}%証明終了の記号書けるようにする
+\def\qed{\hfill $\Box$}%証明終了の記号書けるようにする
+ \usepackage{centernot}%rightarrowにnotの斜め線入れるため．
+ 
+\newtheorem{Def}{定義}[section]
+\newtheorem{Theorem}{定理}[section]
+\newtheorem{Lemma}{補題}[section]
+\newtheorem{Proof}{証明}[section]
+\newtheorem{cor}{系}[section]
+\newtheorem{prop}{命題}[section]
+\usepackage[top=20truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry}
+
+\begin{document}
+
+\title{『公開鍵暗号の数理』\\第７章（IDベース暗号）レジュメ}
+\author{三桝雄大}
+\maketitle
+
+\tableofcontents
+%\setcounter{section}{6}
+%\setcounter{subsection}{2}
+%\setcounter{subsubsection}{2}
+\section{概念}
+\subsection{IDベース暗号に存在するもの}
+
+
+\begin{itemize}
+\item test
+\end{itemize}
+
+
+
+
+
+\begin{thebibliography}
+\bibitem　
+\end{thebibliography}
+\end{document}

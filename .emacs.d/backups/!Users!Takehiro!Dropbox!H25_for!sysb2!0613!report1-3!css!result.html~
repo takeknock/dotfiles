@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta  charset="UTF-8" />
+  <title>登録完了</title>
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" media="screen, projection" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" >
+	<link rel="stylesheet" type="text/css" href="./css/html5-doctor-reset-stylesheet.min.css" >
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></scripto>
+  <script type="text/javascript" src="./js/bootstrap.min.js"></script>　
+</head>
+
+<body>
+	<div class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+		<div class="container">
+		  <ul class="nav">
+			<li class="active"><a href="index.html">メインメニュー</a></li>
+			<li class="active"><a href="register.html">本の登録</a></li>
+			<li class="active"><a href="contents.html">登録済みの本</a></li>
+		  </ul>
+		</div>
+	  </div>
+	</div>
+	
+
+  <div class="container">
+	<h1>ようこそ岡本・阿部研、研究室図書購入情報サイトへ</h1>
+	
+  </div>
+</body>
+</html>

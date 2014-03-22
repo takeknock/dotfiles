@@ -1,0 +1,61 @@
+# -*- coding: utf-8 -*-
+#4/18課題2_2
+class Ex2a
+  def initialize(value)
+    @v = value
+  end  
+  def comp
+    case @v
+    when 0..2
+      puts "small"
+    when 3..5
+      puts "medium"   
+    when Ex2b 
+      puts "これは、Ex2クラスで出力されました"
+    end 
+  end
+end
+a = Ex2a.new(4)
+a.comp
+
+=begin
+マニュアルをみてみると、「===」は
+case 式0
+when 式1
+ puts "TRUE"
+end
+というコードは、
+_tmp = 式0
+if 式1 === _tmp
+  puts "TRUE"
+end
+と同じ意味を持つということであった。
+
+参考URL
+http://doc.ruby-lang.org/ja/1.9.3/doc/spec=2fcontrol.html#case
+=end
+
+class Ex2b
+  def initialize(value)
+    @v = value
+  end  
+  def compa
+    case @v
+    when Class
+      puts "これは、Ex2aクラスで出力されました"
+    when Fixnum
+      puts "これは、Ex2bクラスで出力されました"
+#    when Ex2c 
+#      puts "これは、Ex2cクラスで出力されました"
+    end 
+  end
+end
+a = Ex2b.new(10)
+a.compa
+
+=begin
+
+
+定義されていないクラスと比較しようとすると、
+
+=end

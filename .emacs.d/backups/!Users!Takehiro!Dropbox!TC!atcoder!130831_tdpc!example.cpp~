@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+#define FOR(i,n) for(int i=0;i<(int)n;++i)
+#define REP(i,n) for(int i=(int)n;i>0;--i)
+int main(){
+    int a[1010];
+    int dp[1010];
+
+    int N;
+    cin >> N;
+    for (int i = 0; i < N; ++i)
+    {
+        cin >> a[i];
+    }
+    for (int i = 0; i < N; ++i)
+    {
+        dp[i]=1;
+        for (int j = 0; j < i; ++j)
+        {
+            if(a[i]>a[j])
+                dp[i] = max(dp[i], dp[j]+1);
+        }
+    }
+
+    int ans = 0;
+    for (int i = 0; i < N; ++i)
+    {
+        ans = max(anx, dp[i]);
+    }
+    cout << ans << endl;
+    
+	return 0;
+}
+

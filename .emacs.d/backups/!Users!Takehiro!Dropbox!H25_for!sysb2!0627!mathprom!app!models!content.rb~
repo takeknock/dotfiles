@@ -1,0 +1,5 @@
+class Content < ActiveRecord::Base
+  validates_presence_of :title, :edition, :author, :number :on => :create
+  validates :edition,:number, :numericality => :only_integer
+
+end

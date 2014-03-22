@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+#課題3_3（まだ）
+class A
+#  def initialize(a)
+#    @i=a
+#  end
+  def am
+    return "123"
+  end
+  protected:am
+end
+
+class B < A
+  def bm(t)
+    t.am
+  end
+end
+
+x=B.new
+y=B.new
+x.bm(y)
+
+=begin
+
+=end

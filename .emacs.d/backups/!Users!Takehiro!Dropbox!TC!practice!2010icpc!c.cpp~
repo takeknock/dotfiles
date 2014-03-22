@@ -1,0 +1,69 @@
+#include <iostream>
+
+int TetNum(int n){
+    return (n*(n+1)*(n+2))/6;
+}
+
+int memo[1000000];
+int NumTetNum(const int m){
+    if(memo[m] != 0){
+        return memo[m];
+    }
+    int n = 1;
+    while(TetNum(n+1) <= m){
+        ++n;
+    }
+    if(m-TetNum(n) == 0){
+        memo[m] = 1;
+        return 1;
+    }
+    int num_min = m;
+    for(int i = 1; i <= n; ++i){
+        int num = NumTetNum(m-TetNum(i));
+        if(num < num_min){
+            num_min = num;
+        }
+    }
+    memo[m] = num_min+1;
+    return num_min+1;
+}
+
+int odd_memo[1000000];
+int NumOddTetNum(const int m){
+    if(odd_memo[m] != 0){
+        return odd_memo[m];
+    }
+    int n = 1;
+    while(TetNum(n+1) <= m){
+        ++n;
+    }
+    int t = TetNum(n);
+    if(m-t == 0 && t%2 == 1){
+        odd_memo[m] = 1;
+        return 1;
+    }
+    int num_min = m;
+    for(int i = 1; i <= n; ++i){
+        int t = TetNum(i);
+        if(t%2 == 0){ continue; }
+        int num = NumOddTetNum(m-t);
+        if(num < num_min){
+            num_min = num;
+        }
+    }
+    odd_memo[m] = num_min+1;
+    return num_min+1;
+}
+int main(){
+    for(int i = 0; i < 1000000; ++i){
+        memo[i] = 0;
+        odd_memo[i] = 0;
+    }
+    while(true){
+        int m;
+        std::cin >> m;
+        if(!m){ break; }
+        std::cout << NumTetNum(m) << " " << NumOddTetNum(m) << std::endl;
+    }
+    return 0;
+}

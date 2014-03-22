@@ -1,0 +1,8 @@
+tr.title{
+
+          }
+
+tr.odd{
+Background:skyblue;
+
+        }

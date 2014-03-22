@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+class cqueue{
+    char cq[10];
+    int tos;
+public:
+    void init();
+    void push(char ch);
+    char pop();
+};
+
+void cqueue::init(){
+    tos=0;
+    return;
+}
+
+void cqueue::push(char ch){
+    
+}

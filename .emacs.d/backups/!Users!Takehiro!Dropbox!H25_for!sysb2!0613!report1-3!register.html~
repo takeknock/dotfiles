@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta  charset="UTF-8" />
+  <title>研究費購入本の登録</title>
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" media="screen, projection" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.min.js"></script>　
+</head>
+
+<body>
+  <div class="container">
+	<div class="header">
+	  
+	</div>
+	<div class="main-contents">
+	  <form class="form-horizontal" action="comfirm.html"><!-- method="POST" id="book" action="comfirm.html"> -->
+		
+		  <label>情報を入力して下さい。</label>
+		
+		  <div class="control-group">
+		  <label class="control-label">氏名：</label>
+		  <div class="controls">
+			<input type="text" class="input-large" placeholder="Your Name" >
+		  </div>
+		 </div>
+
+		  <div class="control-group">
+			<label class="control-label">書籍名：</label>
+			<div class="controls">
+			  <input type="text" class="input-large" placeholder="Title" >
+			</div>
+		  </div>
+		  
+		  <div class="control-group">
+			<label class="control-label">著者名：</label>
+			<div class="controls">
+			  <input type="text" class="input-large " placeholder="Author" >
+		    </div>
+		 </div>  
+		  <div class="form-actions">
+			<button type="submit" class="btn btn-large btn-primary">確認画面へ進む</button>
+		  </div>
+	  </form>
+  </div>
+</body>
+</html>

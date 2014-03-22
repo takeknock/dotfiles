@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+#課題3_6（まだ）
+class A
+  def am
+    return "クラスAのメソッドamが呼び出された"
+  end
+  private:am
+end
+
+class B < A
+  def bm(x)
+    x.am
+  end
+end
+
+x=B.new
+a=x.bm
+puts a
+
+
+=begin
+
+=end

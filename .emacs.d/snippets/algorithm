@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: algorithm
+# key: algorithm
+# binding: direct-keybinding
+# expand-env: ((some-var some-value))
+# type: command
+# --
+#include <algorithm>

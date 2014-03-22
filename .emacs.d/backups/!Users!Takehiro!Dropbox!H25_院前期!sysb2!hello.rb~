@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+message = "こんにちは"
+puts message
+a = 23; message = 100 +a
+puts(message)

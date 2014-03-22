@@ -1,0 +1,58 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/views/" . "users/")
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/assets/" . "stylesheets/")
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/" . "controllers/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/controllers/"
+ "/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/views/users/"
+ "/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/"
+ "/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/assets/stylesheets/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "users_controller.rb"
+ "new.html.erb"
+ "Gemfile"
+ "index.html.erb"
+ "posts.css.scss"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/controllers/" (20958 13929) "users_controller.rb" "posts_controller.rb" "concerns/" "application_controller.rb" "../" "./")
+
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/views/users/" (20964 59897) "show.json.jbuilder" "show.html.erb" "new.html.erb" "index.json.jbuilder" "index.html.erb" "edit.html.erb" "_form.html.erb" ".#new.html.erb" "../" "./")
+
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/assets/stylesheets/" (20964 59032) "users.css.scss" "scaffolds.css.scss" "posts.css.scss" "application.css" "../" "./")
+
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/assets/" (20957 53305) "stylesheets/" "javascripts/" "images/" "../" "./")
+
+ ("/Users/" (20866 26348) "Takehiro/" "Shared/" ".localized" "../" "./")
+
+ ("/Users/Takehiro/" (20964 56244) "良い感じに発表する.mm" "自己紹介.log" "自己紹介.aux" "自己紹介" "メモ.txt" "デスクトップ放り込み/" "いろいろ.rtf" "x1.mobileconfig" "x.log" "www_old/" "www/" "world1/" "Woopra/" "VirtualBox VMs/" "User/" "uruu.cc" "torrent/" "textest.toc" "textest.tex" "textest.pdf" "textest.log" "textest.idx" "textest.dvi" "textest.aux" "texsample.tex" "texsample.pdf" "texsample.log" "texsample.dvi" "texsample.aux" "test2.tex" "test.tex~" "test.tex" "test.rb" "test.log" "test.html" "test.c" "test.aux" "tempLoadUI/" "taketakchan/" "takeknock@www2405ue.sakura.ne.jp" "takeknock/" "stream.php" "StartFromHatebu.crx/" "soapUI-Tutorials/" "soapui-settings.xml" "sl/" "Sites/" "seaofclouds-tweet-for-wordpress/" "sakura_minecraft_server/" "root@www6345ui.sakura.ne.jp" "report4.txt" "R/" "q.log" "Public/" "projects/" "plot/" "Pictures/" "perl5/" "output-2.txt" "output-1.txt" "OmniFocus 2012-11-18 183427.ofocus-backup/" "ocr/" "nodejs/" "nicomegetter/" "nicoline/" "NewFolder/" "natural/" "Music/" "Movies/" "movie/" "MMD/" "mmatthew43@www6345ui.sakura.ne.jp" "MineFactoryReloaded_Server_1.5.2.zip" "minecraft.jar" "minecraft/" "mctmp/" "mcmap-src.zip" "mcmap-src/" "mcmap-gui-src/" "lightbox-2-wordpress-plugin/" "Library/" "jartmp2441218067875805272.tmp" "iphonep/" "index.html" "hoge.php" "hellogae/" "hannabot/" "hackexp/" "Google Drive/" "emacs.d/" "EasyBotter2.05.zip" "EasyBotter2.05/" "Dropbox/" "dp.SyntaxHighlighter/" "Downloads/" "download/" "Documents/" "Desktop/" "default-soapui-workspace.xml" "cpanminus/" "ContestAppletProd.jnlp" "contestapplet.conf.bak" "contestapplet.conf" "chromeextension/" "bin/" "backup/" "backtrack5r3/" "auto-complete-1.3.1.tar.bz2" "auto-complete-1.3.1/" "Applications/" "AndroidSDK/" "a.txt" "a.cpp" "120501-/" "110814a.csv" "110727_test.txt" "110615kadai.tex~" "110615kadai.tex" "110615kadai.log" "110615kadai.aux" "110609_macro.tex" "110602t.tex~" "110602t.tex" "110602t.pdf" "110602t.log" "110602t.dvi" "110602t.aux" "110602.tex" "110602.pdf" "110602.log" "110602.dvi" "110602.aux" ".yoxoslauncher/" ".xdvirc" ".Xcode/" ".Xauthority" ".woopra/" ".wireshark-etc/" ".wireshark/" ".w3m/" ".viminfo" ".Trash/" ".thumbnails/" ".texmf/" ".texlive2012/" ".swt/" ".subversion/" ".ssh/" ".sqlite_history" ".spotflux/" ".serverauth.22076" ".Rhistory" ".rbupwxbn" ".rbenv/" ".profile.macports-saved_2011-04-14_at_19:58:39" ".profile" ".php_history" ".npm/" ".node-gyp/" ".netbeans/" ".nchsoftware/" ".mysql_history" ".my.cnf~" ".my.cnf" ".matplotlib/" ".macports/" ".lesshst" ".KeyHoleTV" ".gnuplot_history" ".gitconfig" ".gem/" ".gdb_history" ".freemind/" ".fontconfig/" ".emacs.d/" ".edsblmorc" ".eclipse/" ".dvdcss/" ".DS_Store" ".dropbox/" ".cups/" ".cpanm/" ".cpan/" ".config/" ".CFUserTextEncoding" ".bashrc~" ".bashrc" ".bash_profile.pysave" ".bash_profile" ".bash_history" ".android/" ".adobe/" "#texsample.tex#" "#report04.txt#" "#.bashrc#" "../" "./")
+
+ ("/Users/Takehiro/Dropbox/" (20964 4003) "電子書籍事業計画.pages" "解説レーザーディスプレイ-基礎から応用まで-.pdf" "統計分析_三桝.xlsx" "経済英語.pdf" "経済学部試験過去問/" "糺の森/" "第６回経済英語.pages" "競合優位性.pptx" "用語/" "汝は人狼なりやログ3" "汝は人狼なりやログ1" "汝は人狼なりや2" "機械学習入門前-数式定義公式.pdf" "株関連/" "戦略起業論レポート.pages" "失敗の反省/" "原ゼミ23年度インゼミ企画.pptx" "共有アドテンプレ.txt" "京都大学「日中M&Aについて」20110808_3限_田中康之.pdf" "京都大学「倒産とM&A」20110809_4限_米正剛.pdf" "事業計画書提出用用紙.docx" "レシピ/" "プロジェクトシード_AniDonate.docx" "プレゼン資料/" "ネタ/" "テストセンター場所.gif" "チャレンジシート_三桝.xlsx" "センターボーダー一覧.pdf" "スクリーンショット（2011-10-09 15.54.11）.png" "スクリーンショット（2011-09-19 2.45.53）.png" "スクリーンショット（2011-08-24 12.43.18）.png" "スクリーンショット（2011-07-13 20.49.08）.png" "スクリーンショット 2012-01-18 9.53.05.png" "グリーンハイツの収益性を高めるには？.mm" "カメラアップロード/" "なんでこんなにしんどいのか？.mm" "なんでこんなにしんどいのか？.jpeg" "www.dotup.org2067210.jpg" "www/" "wordsample.doc" "win7共有パス.txt" "touhoukouroumu8_a.pdf" "tex/" "TC/" "t1編集済.xls" "ScanSnap/" "sakura editer.lnk" "r-tips.pdf" "Public/" "PT資料/" "picture/" "Photos/" "PC/" "Ortiz_Cummins.pdf" "nlp2011okunopaper-110329021812-phpapp02.pdf" "new_age_of_marketing.pptx" "music/" "MTG資料_110629.doc" "movie/" "MIZUHO SUMMER INTERNSHIP 選考会　予約画面.png" "McKinsey Problem Solving Test   Practice Form 2011_V4.pdf" "line.pdf" "iPhone intro.pdf" "Interesting knowledge/" "Icon
+" "HeartShooter_wp/" "haganai.html" "H25就活/" "H25_for/" "H24夏休み/" "H24前期_成績表.pdf" "H24前期/" "H24_後期/" "H24-25春休み/" "H23後期/" "H23就活/" "H23前期/" "H23_seiseki.pdf" "Getting Started.pdf" "fav/" "emacs.el" "desktop-calendar-2011-v01-sun (1)/" "clock_Akari.gg.zip" "CircleCraft_project/" "BW/" "bubbleup/" "Boot_Camp_Install-Setup_J.pdf" "boot_camp_install-setup_10.7_j.pdf" "Android intro.pdf" "75-6.pdf" "623f4e4f.jpg" "403e0c63.jpg" "2012秋アニメランキング.xls" "20121002司法試験の分析と法律フレームワーク講座.pdf" "2011shouzou.pdf" "2011phpでセキュリティをまじめに考える.pdf" "2011_秋アニメまとめ.pages" "20110712原ゼミ統計第３回.pdf" "201003ネットオフ株式会社様　SEO内部対策指示書.ppt" "20-110917004208-phpapp02.pdf" "130e39b0.jpg" "130716_ネット選挙考察_nhk24" "130514_疲れた時に.png" "121218_飲み会で話して考えたこと.txt" "121218_飲み会で話して考えたこと.omm" "121124_McKプレゼン資料.pdf" "121118_秋アニメ" "121015_手紙WG" "120829_綺麗に切るための包丁の使い方" "120721_就職関連の本" "120607_minecraftソーラー計画試算.xlsx" "120606_えのっちツイッターパス のコピー .txt" "120530_やるべきことまとめ.docx" "120521_ニコ動に時間を使うべきか否かとその後のアクションプラン.xlsx" "120418_wordpressパス" "11年財政学（1）.doc" "11_経済英語　.pages" "111205_電子書籍メリット・デメリット" "111204_新技術評価についてうんぬ" "111203_自己分析.txt" "111203_業界・企業研究（コンサル）" "111203_情報発信使い分け" "111203_中間発表資料.pptx" "111203_中間発表まとめ" "111117_企業訪問依頼状" "111117_ミーティング資料" "111115_プロジェクトシード_三桝班ver1.docx" "111111_未実装要件.pages" "111110_kabegami1280_1024.jpg" "111109_経済数学06確率基礎授業後変更.pdf" "111109_名言.pages" "111108_ゼミ冊子原稿.omm" "111105_1522497.jpeg" "111104_日本シューター関連.pages" "111104_交渉理論WS（ベンチャー技術売り込みケース）.pages" "111101_ターゲット等まとめ.pages" "111031_ターゲットニーズ質問項目.pages" "111030_月で生存.pages" "111028_MCペーパークラフト.png" "111028_MCペパクラ_クリーパーカー.png" "111027_反省点まとめ" "111027_カヤック柳沢キャリアセミナー.pages" "111027_BWMTG.pages" "111026_就活反省点.pages" "111026_GD対策.pages" "111025_意思決定入門.pages" "111025_otomixアイキャッチ.jpeg" "111025_htmlテンプレート" "111024_新歓悩んだところ.pages" "111024_化粧品市場調査.pages" "111024_ディスカッション準備.pages" "111024-交渉理論WS.pages" "111023_事業戦略の作り方.pages" "111023_1522667z.jpeg" "111021_テストセンター受験票.png" "111020_意思決定入門履修課題.pages" "111020_市場調査方法.pages" "111019_新歓連絡先とか.ppt" "111018_就活_教育格差理論詰め.pages" "111011_発表レジュメ.pages" "111011_EBPT後期方針.key" "111010_DP動的計画法.pdf" "111009_武器決わかったとこまとめ.pages" "111007_起業と事業創造履修課題.docx" "111007_意思決定入門履修課題.docx" "111007_意思決定入門.pages" "111004_ゼミ_老舗研究について.pages" "111003_3e58b8559ab352a8c31356b7ea42989e.jpg" "111002_ボカロ名作選.pages" "111002_19592936.jpg" "111001_作りたいもの.pages" "110930_マッキンゼー説明会.pages" "110930_インゼミについて（電子書籍PTについても）.pages" "110929_自己分析.pages" "110929_新歓計画書.pages" "110929_イベント運営の行動指針.pages" "110929_mathtutorialpublic-110929065832-phpapp01.pdf" "110927_おすすめ本.pages" "110926_コピペまとめ.pages" "110925_武器決まとめ.pages" "110925_僕武器まとめ.pages" "110923_todo.txt" "110922_集客デザイン系.pages" "110919_海外PT.pages" "110919_ディベートFramework.pdf" "110919_ディベート_スヌーピーレジュメ.pdf" "110917_上杉周作_20プロ.pdf" "110916_南場さんキャリアセミナー.pages" "110914_インターン反省.pages" "110913_旅行計画.pages" "110905_ディベート講座by瀧本哲史.pages" "110903_週末チェックリスト.pages" "110903_イエココ_アイデア.pages" "110829_ペンパル自己紹介.pages" "110829_ted_ja.pages" "110829_ted_en.pages" "110829_english_expression.pages" "110828_secret_自分とこれまで.pages" "110827_発達障害支援グループワーク" "110827_kyoto発達支援講演会メモ.pdf" "110827_kyoto発達支援講演会メモ.docx" "110825_事業計画_プロ野球のネット中継.pages" "110825_speee面接メモ.pdf" "110814_LT資料_統計実践編.key" "110808_ブログ下書き.pages" "110807_css_garally.pages" "110705_インゼミM（研究室）.pdf" "110705_NH&D.csv" "110624_ESL_EatingAScoolLunch.pages" "110621_メモ.rtf" "110510.pdf" "1100828_わかったことまとめ.pages" "100623_ディベート思考入門第１回.pdf" ".DS_Store" ".dropbox.cache/" "../" "./")
+
+ ("/Users/Takehiro/Dropbox/H25_for/" (20946 18748) "防災情報特論/" "趣味/" "計算機科学入門/" "自己紹介用写真.jpg" "社情アプリ開発/" "特別講義/" "振込先情報_itkeys_三桝.xls" "情報社会論/" "情報学展望1/" "情報システム分析論/" "危機管理特論/" "入館者リスト_三桝.xlsx" "かこもん/" "user_info.xls" "tex/" "sysb2/" "supercomputer_setting.pdf" "security/" "scheme-in-ruby.pdf" "research/" "repo_tmpl.tex" "recruit/" "procon/" "msg4150.pdf" "ITKeys志望動機" "itkeys/" "H25試験日程.pdf" "H25MS_Jp_guide_April.pdf" "H25MS_Jp_form研究経過報告書.doc" "general_attachment.pdf" "CollaborationPatterns060c-Double.pdf" "boot_camp_install-setup_10.7_j.pdf" "2013京大紅萌.pdf" "1_sysb/" "130426_自己紹介英文メモ" "130426_今年ツイてると思ったこと" "130419_パケット解析からのライブラリ作成kmc20130418.pdf" "130411_借り本一覧" "130408_前期時間割.xlsx" "130408_デザイン学連携プログラム説明" "130408_alloy.pdf" ".DS_Store" "../" "./")
+
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/" (20946 13314) "tex/" "report2-4/" "kadai1.rb" "index.html" "hello.rb" "bootstrap/" "130620_mimasu_isd2kadai.zip" "130613_mimasu_isd2kadai.zip" "130530_FD図まとめ.docx" "0627/" "0620/" "0613/" "0606/" "0530/" "0516/" "0509/" "0425/" "0418/" "0411/" ".DS_Store" "../" "./")
+
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/0627/" (20964 55215) "testtttttt/" "mathprom/" "Gemfile.lock" "Gemfile" "example2/" "example/" "blog/" "130716_最終課題rails要件" "130711_rails_tips" ".DS_Store" "../" "./")
+
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/" (20957 58351) "vendor/" "tmp/" "test/" "README.rdoc" "Rakefile" "public/" "log/" "lib/" "Gemfile.lock" "Gemfile" "db/" "config.ru" "config/" "bin/" "app/" ".gitignore" ".DS_Store" "../" "./")
+
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/" (20957 58356) "views/" "models/" "mailers/" "helpers/" "controllers/" "assets/" ".DS_Store" "../" "./")
+
+ ("/Users/Takehiro/Dropbox/H25_for/sysb2/0627/example2/app/views/" (20958 13929) "users/" "posts/" "layouts/" ".DS_Store" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

@@ -1,0 +1,65 @@
+# -*- coding: utf-8 -*-
+#4/11課題４まだ
+class Ex4a
+  def test
+    t = "ローカル変数"
+    @t = "インスタンス変数"
+    $t = "グローバル変数"
+    puts $t+": 変数内で出力"
+    puts @t+": 変数内で出力"
+    puts t+": 変数内で出力"
+  end
+  def out
+    puts $t+": 別変数で出力"
+    puts @t+": 別変数で出力"
+#    puts t+": 別変数で出力" 
+  end
+end
+a = Ex4a.new
+a.test
+a.out
+#このソースコードを実行すると、インスタンス変数まで無事に表示されて、その後エラーメッセージとして
+#kadai1.rb:97:in `out': undefined local variable or method `t' for #<Ex4a:0x106956f58> (NameError)
+#from kadai1.rb:102
+#が出力された。つまり、ローカル変数tは定義されていないのでエラーというわけである。これはローカル変数の性質である、メソッド内でしか有効でないということを示すものだろう。
+
+#出力結果
+#グローバル変数: 変数内で出力
+#インスタンス変数: 変数内で出力
+#ローカル変数: 変数内で出力
+#グローバル変数: 別変数で出力
+#インスタンス変数: 別変数で出力
+#kadai1.rb:97:in `out': undefined local variable or method `t' for #<Ex4a:0x10b3d2280> (NameError)
+#from kadai1.rb:100
+
+#次にインスタンス変数とグローバル変数の寿命、スコープを比べてみる。
+class Ex4b
+  def test
+    @t = "インスタンス変数"
+    $t = "グローバル変数"
+  end
+  def out
+    puts $t+": 別変数で出力"
+    puts @t+": 別変数で出力"
+  end
+end
+class Ex4bb
+  def out
+    puts $t+": 別クラスで出力"
+#    puts @t+": 別クラスで出力"
+  end
+end
+a = Ex4b.new
+a.test
+a.out
+a = Ex4bb.new
+a.out
+
+#変数生成したのと別のクラスのメソッドで表示させようとした場合、グローバル変数のみが表示できた。
+
+#出力結果
+#グローバル変数: 別変数で出力
+#インスタンス変数: 別変数で出力
+#グローバル変数: 別クラスで出力
+#kadai1.rb:131:in `out': undefined method `+' for nil:NilClass (NoMethodError)
+#from kadai1.rb:136

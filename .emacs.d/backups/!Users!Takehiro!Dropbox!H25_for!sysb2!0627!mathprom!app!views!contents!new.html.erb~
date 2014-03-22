@@ -1,0 +1,41 @@
+<h1>コンテンツ登録画面</h1>
+
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+<div class="error_messages">
+  <h2>以下の内容を確認してください。</h2>
+  <ul>
+	<% for message in @user.errors.full_messages %>
+	<li><%= message %></li>
+	<% end %>
+  </ul>
+</div>
+<% end %>
+<div id="new_container">
+  <div class="field">
+	<%= f.label :name%>
+	<%= f.text_field :name%>
+  </div>
+  <div class="field">
+	<%= f.label :email%>
+	<%= f.text_field :email%>
+  </div>
+  <small>パスワードは８文字以上</small>
+  <div class="field">
+	<%= f.label :password%>
+	<%= f.password_field :password%>
+  </div>
+  <div class="field">
+	<%= f.label :password_confirmation %>
+	<%= f.password_field :password_confirmation%>
+  </div>
+  
+  <%= f.submit :confirm => 'Create?' %>
+<!--<button class="btn btn-primary"></button>
+	<div class="button primary action"><%= f.submit %>	</div>
+-->
+<%= link_to 'Delete', users_path, :confirm => 'Sure?', :method => :delete %>
+	
+<% end %>
+  
+</div>

@@ -1,0 +1,33 @@
+int n, p;
+int NextMayor(){
+    int mayor[50];
+    int cup = p;
+    int s = 0;
+    while(1){
+        for(int i = 0; i < n; ++i){
+            if(mayor[i] == p){
+                return i;
+            }
+        }
+        int m = int(cup/n);
+        int k = cup % n;
+        for(int i = 0; i < k; ++i){
+            ++mayor[(s+i)%n];
+        }
+        cup = mayor[(s+k+1)%n];
+        mayor[(s+k+1)%n] = 0;
+        s = (s+k+2)%n;
+    }
+    
+}
+
+int main(){
+    while(1){
+        std::cin >> n;
+        if(n==0){
+            break;
+        }
+        std::cin >> p;
+        std::cout << NextMayor() << std::endl;
+    }
+}

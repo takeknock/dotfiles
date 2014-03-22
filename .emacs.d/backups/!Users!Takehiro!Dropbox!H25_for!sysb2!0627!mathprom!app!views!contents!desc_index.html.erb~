@@ -1,0 +1,67 @@
+<!-- -*- coding: utf-8 -*- -->
+<% if current_user != nil%><!--ログインしている場合，コンテンツ一覧を表示-->
+<h1>登録されている本一覧</h1>
+全<%= @columns %>件（全<%= @number %>冊が貸出可能）
+
+<h2>本の検索</h2><!--検索フォーム-->
+<%= form_tag :search_contents, method: :get do %>
+<p><%= text_field_tag "q", params[:q]%>
+<button class="btn">検索<% submit_tag "検索"%></button></p>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+  <tr><th id="n">ID</th><th>本のタイトル</th><th id="n">版</th><th>著者</th><th id="n">利用可能な所蔵数</th><th id="n">予約状況</th><th id="n">貸出状況</th><th>更新日時</th><th>編集</th><th>削除</th></tr>
+  </thead>
+  <tbody>
+	<% @contents2.each do |content| %>
+	<tr  id="content_<%= content.id%>" >
+	  <td id="n"><%= content.id %></td>
+	  <td><%=content.title %></td>
+	  <td id="n"><%= content.edition %></td>
+	  <td><%= content.author %></td>
+	  <td id="n"><%= content.number %></td>
+<!--予約フラグがtrueじゃないなら貸し出されていない「-」表記-->
+	  <td id="n"><% if content.subscribe!=true then %>
+		-
+		<% else %>
+		<i class="icon-ok"></i>
+		<% end %>
+	  </td>
+	  <!--貸出フラグがtrueじゃないなら貸し出されていない「-」表記-->
+	  <td id="n"><% if content.borrowed!=true then %>
+		-
+		<% else %>
+		<i class="icon-ok"></i>
+		<% end %>
+		</td>
+	  <td><%= content.updated_at%></td>
+	  <td id="n"><%=link_to "編集", edit_content_path(content)%></td>
+	  <td><%=link_to "削除", content, :confirm => 'Sure?', :method => :delete%></td>
+	</tr>
+	<% end %>
+  </tbody>
+</table>
+<!--
+<script>
+$(function(){
+
+//削除処理のajax化
+$('a[data-method="delete"]').live('ajax:success', function(e, data, status, xhr){
+$('#content_'+data.content.id).fadeOut("slow");
+});
+
+});
+</script>
+-->
+<% else %><!--ログインしていない場合，通常のトップページ画面を表示-->
+<h1>岡本・阿部研究室図書管理サービス</h1>
+<%= image_tag 'topfig.gif'%>
+
+<ul>
+  <li>現在<%= @number %>冊の本が所蔵されています．</li>
+  <% @contents1.each do |content| %>
+  <li>『<%= content.title %>』が追加されました．</li>
+  <% end %>
+</ul>
+<% end %>

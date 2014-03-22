@@ -1,0 +1,19 @@
+y,100000,n,n,n,n,Most likely ok.
+y,50000,n,n,y,n,Most likely ok.
+n,1000000,y,y,y,y, Check.
+n,500000,y,y,y,y, Check.
+n,300000,y,n,y,n, Check.
+n,1000000,y,n,y,y, Check.
+n,800000,y,y,y,y, Check.
+n,900000,y,n,y,y, Check.
+n,170000,y,y,y,y, Check.
+n,30000,n,n,n,n,Most likely ok.
+n,50000,n,n,n,n,Most likely ok.
+y,80000,y,n,n,y,Most likely ok.
+y,30000,n,n,y,n,Most likely ok.
+y,60000,y,n,y,y,Most likely ok.
+y,50000,n,n,n,y,Most likely ok.
+n,2000000,y,n,y,y, Check.
+n,900000,y,n,y,y, Check.
+y,150000,n,n,n,n,Most likely ok.
+y,200000,n,n,n,n,Most likely ok.

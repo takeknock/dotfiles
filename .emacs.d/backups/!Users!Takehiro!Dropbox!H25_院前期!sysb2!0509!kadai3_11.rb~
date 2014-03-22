@@ -1,0 +1,56 @@
+# -*- coding: utf-8 -*-
+#課題3_11
+module HasName
+  def >(other)
+    return (self.name > other.name)
+  end
+
+  def initial
+    return self.name[0,1]
+  end
+  def capitalName
+    return self.name.upcase
+  end
+end
+
+class Person
+  include HasName
+  def initialize(name)
+    @name=name
+  end
+  def name
+    return @name
+  end
+end
+
+class City
+  include HasName
+  def initialize(name)
+    @name=name
+  end
+  def name
+    return @name
+  end
+end
+
+p=Person.new("Mimasu")
+puts p.initial
+puts p.capitalName
+
+c=City.new("Kyoto")
+puts c.initial
+puts c.capitalName
+
+puts p > c
+ 
+=begin
+問題の条件に沿ったプログラムを作成した。作成したメソッドがきちんと問題で指定された機能を持っているか確かめた結果、正しく動作していることがわかった、
+
+出力結果
+M
+MIMASU
+K
+KYOTO
+true
+
+=end

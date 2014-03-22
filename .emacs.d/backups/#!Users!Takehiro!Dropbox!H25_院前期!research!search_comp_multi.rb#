@@ -1,0 +1,13 @@
+
+        break
+      end
+      i+=1
+    end
+  end
+  def calc
+  
+  end
+  
+end
+
+A.new.search

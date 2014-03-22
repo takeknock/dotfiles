@@ -1,0 +1,13 @@
+li{
+    width:10em;
+    float:left;
+    background-color:black;
+    color:white;
+    font-size:14pt;
+    list-style-type:none;
+    text-align:center;
+    }
+
+.container{
+            float:clear;
+            }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+	<meta charset="UTF-8">
+	<title>report1-1</title>
+	<table width="600" cellspacing="" cellpadding="" border="">
+	  <tr>
+		<th>年</th>
+		<th>月</th>
+		<th>学歴・職歴</th>
+	  </tr>
+      <tr>
+		<td align="left">平成20年</td>
+		<td align="center">３月</td>
+		<td align="right">広島学院高等学校 卒業</td>
+      </tr>
+	  <tr>
+		<td align="left">平成21年</td>
+		<td align="center">４月</td>
+		<td align="right">京都大学 経済学部 入学</td>
+	  </tr>
+	  <tr>
+		<td align="left">平成25年</td>
+		<td align="center">３月</td>
+		<td align="right">京都大学 経済学部 卒業</td>
+	  </tr>
+	  <tr>
+		<td align="left">平成25年</td>
+		<td align="center">４月</td>
+		<td align="right">京都大学大学院 情報学研究科 修士課程 入学</td>
+	  </tr>
+	</table>
+	</head>
+    <body>
+
+	</body>
+
+ </html>

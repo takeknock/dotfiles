@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+#include <cstring>
+using namespace std;
+
+typedef long long ll;
+
+int w, h, cnt;
+int dx[]={-1,1,0};
+int dy[]={-1,1,0};
+int field[51][51];
+
+void dfs(int x, int y){
+    field[y][x]=0;
+    for (int i=0; i < 3; ++i){
+        for (int j = 0; j < 3; ++j){
+            int nx=x+dx[i];
+            int ny=y+dy[j];
+            if (nx < 0 || w<=nx || ny<0 || h<=ny){
+                continue;
+            }
+            if (field[ny][nx]==0){
+                continue;
+            }
+            dfs(ny, nx);
+        }
+    }
+}
+    
+
+int main(){
+	while(cin >> w >> h, (w||h)){
+        memset(field, 0, sizeof(field));
+        for (int i = 0; i < h; ++i){
+            for (int j = 0; j < w; ++j){
+                cin >> field[i][j];
+            }
+        }
+
+        cnt = 0;
+        for (int i = 0; i < h; ++i){
+            for (int j = 0; j < w; ++j){
+                if(field[i][j]==1){
+                    cnt++;
+                    dfs(i, j);
+                }
+            }
+        }
+        cout << cnt << endl;
+        
+    }
+    
+	return 0;
+}
+

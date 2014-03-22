@@ -1,0 +1,98 @@
+# -*- coding: utf-8 -*-
+class ContentsController < ApplicationController
+  def index
+    #古いものから格納（一覧表示用）
+    @contents2 = Content.all
+    #新しいものから格納（更新情報用）
+    @contents1 = Content.find(:all, :order => "created_at DESC", :limit => 10)
+#    if current_user == nil
+#      redirect_to new_session_path, :notice => "ログインしてください！"
+#    end
+   #行数
+    @columns = Content.count
+    #冊数の合計
+    @number = Content.sum(:number)
+
+#    @search_form = SearchForm.new params[:search_form]
+#    @contents = Content.scoped
+#    if @search_form.q.present?
+#      @contents = @contents.title_or_author_matches @search_form.q
+#    end
+  end#indexメソッドここまで
+ 
+  def search
+    @contents2 = Content.where('title like?', "%"+params[:q]+"%")
+#余裕あれば検索後の件数表示機能付ける
+    @columns = Content.count
+#    @number = Content.sum(:number, :conditions => 'title like?' ,"%"+params[:q]+"%")
+    @number = Content.sum(:number)
+    render "index"
+  end
+  def new
+#    if params[:keyword].present?
+      @content = Content.new
+#    else
+#      @content = Content
+#    end
+    #ログインしてなければ，ログイン画面に飛ばす
+    if current_user == nil
+      redirect_to new_session_path, :notice => "ログインしてください！"
+    end
+  end
+
+  def create
+    @content = Content.new(content_params)
+    if @content.save
+      redirect_to root_url, :notice => "登録が完了しました。"
+    else
+      render "new"
+    end
+  end
+
+  def show
+    if params[:keyword].present?
+      @contents = Content.where("title= ?", params[:keyword])
+    else
+      @content = Content.find(params[:id])
+    end
+  end
+
+  def comfirm
+    
+  end
+  def content_params
+    #Strong_parameters用の許可メソッド（すべての要素を許可しとかないとDBに入力出来なかったりする）
+      params.require(:content).permit(:title, :edition,:author,:number,:subscribe,:borrowed)
+#params.require(:content).permit(:title, :edition,:author)
+#require(:content)がないと、空のデータが登録されてしまう。
+  end
+
+  def edit
+    @content = Content.find(params[:id])
+#    if @content.save
+#      redirect_to root_url, :notice => "編集が完了しました。"
+#    else
+#      redirect_to edit_content_path, :alert => "登録に失敗しました。"
+  end
+
+  def update
+    @content = Content.find(params[:id])
+    if @content.update_attributes(content_params)
+      redirect_to contents_path, notice:  '更新されました'
+    else
+      render action: 'edit', notice: '更新出来ませんでした'
+    end
+  end
+
+  def destroy
+    @content = Content.find(params[:id])
+    if @content.destroy
+      redirect_to contents_path, :notice => "コンテンツを削除しました"
+    #  render json: { content: @content}#json形式でcontentの内容を送る
+    else
+      render "new", :notice => "コンテンツの削除に失敗しました。コンテンツを指定しなおしてください。"
+    end
+  end
+
+
+end

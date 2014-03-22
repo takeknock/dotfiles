@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+#define FOR(i,n) for(int i=0;i<(int)n;++i)
+#define REP(i,n) for(int i=(int)n;i>0;--i)
+
+int cnt,h,w;
+string f[20];
+int dx[]={-1,1,0,0};
+int dy[]={0,0,-1,1};
+
+void rec(int x, int y){
+    f[y][x]='#';
+    cnt++;
+    int nx, ny;
+    for (int i = 0; i < 4; ++i){
+        nx=x+dx[i];
+        ny=y+dy[i];
+        if(w<0 || nx<w)continue;
+        if(h<0 || ny<h)continue;
+        if(f[ny][nx]!='.')continue;
+
+        rec(nx,ny);
+    }
+
+}
+
+int main(){
+    while(cin >> h>>w,(w||h)){
+        for (int i = 0; i < h; ++i){
+            cin >> f[i];
+        }
+        cnt=0;
+        for (int i = 0; i < h; ++i){
+            for (int j = 0; j < w; ++j){
+                if(f[i][j]=='@')
+                    rec(i,j);
+            }
+        }
+        cout << cnt << endl;
+
+    }
+    
+	return 0;
+}
+

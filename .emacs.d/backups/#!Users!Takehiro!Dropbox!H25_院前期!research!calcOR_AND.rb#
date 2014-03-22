@@ -1,0 +1,2 @@
+a = STDIN.gets
+b = STDIN.gets

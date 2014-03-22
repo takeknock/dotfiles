@@ -1,0 +1,1 @@
+<%= link_to 'home', accounts_path %> | <%= link_to 'アカウント新規発行', new_user_path %> | <%#= link_to '登録者一覧', account_path %> 

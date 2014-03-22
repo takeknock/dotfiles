@@ -1,0 +1,114 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+#define FOR(i,n) for(int i=0;i<(int)n;++i)
+#define REP(i,n) for(int i=(int)n;i>0;--i)
+int W, H;
+int yoko[30][30];
+int tate[30][30];
+int dx[4] = {1, -1, 0, 0};
+int dy[4] = {0, 0,  1,-1};
+
+void search(int x, int y, int routed[30][30], int d){
+    if(routed[y][x] == 1)return;
+    routed[y][x] = 1;
+    if(x == W-1 && y == H-1){
+        cout << d+1 << endl;
+    }
+    
+}
+
+int main(){
+    while(true){
+        cin >> W >> H;
+        if(W == 0)break;
+
+        for(int i = 0; i < 2*H-1; i++){
+            if(i%2 == 0){
+                for(int x = 0; x < W-1; x++){
+                    cin >> yoko[i/2][x];
+                    //cout << yoko[i/2][x];
+                }
+                //cout <<endl;
+            }else{
+                for(int y = 0; y < W; y++){
+                    cin >> tate[(i-1)/2][y];
+                    //cout << tate[(i-1)/2][y];
+                }
+                //cout << endl;
+            }
+        }
+        
+        /*for(int y = 0; y < H; y++){
+            for(int x = 0; x < W-1; x++){
+                cout << yoko[y][x];
+            }
+            cout << endl;
+        }
+        for(int y = 0; y < H-1; y++){
+            for(int x = 0; x < W; x++){
+                cout << tate[y][x];
+            }
+            cout << endl;
+            }*/
+        
+        int routed[30][30];
+        for(int i = 0; i < 30; i++){
+            for(int j = 0; j < 30; j++){
+                routed[i][j] = 999;
+            }
+        }
+        routed[0][0] = 1;
+        for(int i = 1; i < 910; i++){
+            for(int y = 0; y < H; y++){
+                for(int x = 0; x < W; x++){
+                    if(routed[y][x] <= i)continue;
+                    for(int j = 0; j < 4; j++){
+                        int nx = x + dx[j];
+                        int ny = y + dy[j];
+                        if(0 <= nx && nx < W && 0 <= ny && ny < H && routed[ny][nx] == i){
+                        
+                            if(j == 0 && yoko[y][x-1] == 0){
+                                routed[y][x] = i + 1;
+                            }
+                            if(j == 1 && yoko[y][x] == 0){
+                                cout << x << " " << y <<endl;
+                                routed[y][x] = i + 1;
+                            }
+                            if(j == 2 && tate[y][x] == 0){
+                                routed[y][x] = i + 1;
+                            }
+                            if(j == 3 && tate[y-1][x] == 0){
+                                routed[y][x] = i + 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if(routed[H-1][W-1] == 999){
+            cout << 0 << endl;
+        }else{
+            cout << routed[H-1][W-1]<<endl;
+        }
+    }
+    
+	return 0;
+}
+

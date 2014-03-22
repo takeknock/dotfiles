@@ -1,0 +1,47 @@
+
+/**
+ * CodeVS 2012 cpp sample
+ */
+
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main(){
+	srand((unsigned)time(NULL));
+	int wid,hei,size,sum,step;
+	scanf("%d %d %d %d %d",&wid,&hei,&size,&sum,&step);
+
+	int*** pack;
+	char endstr[1024];
+	pack=new int**[step];
+	for(int i=0;i<step;i++){
+		pack[i]=new int*[size];
+		for(int j=0;j<size;j++){
+			pack[i][j]=new int[size];
+			for(int k=0;k<size;k++){
+				scanf("%d",&pack[i][j][k]);
+			}
+		}
+		scanf("%s",endstr);
+	}
+
+	for(int i=0;i<step;i++){
+		int xpos=rand()%(wid-size+1);
+		int rot=rand()%4;
+		printf("%d %d\n",xpos,rot);
+		fflush(stdout);
+	}
+
+	for(int i=0;i<step;i++){
+		for(int j=0;j<size;j++){
+			delete[] pack[i][j];
+		}
+		delete[] pack[i];
+	}
+	delete[] pack;
+	return 0;
+}

@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+#課題3_16
+class A
+  def m1
+    rescue
+      puts "エラーが発生しました。"
+    m2
+  end
+
+  def m2
+    m3
+  end
+
+  def m3
+    a={1,2,3}
+    puts a[5]
+  end
+end
+
+A.new.m1
+
+=begin
+
+
+=end

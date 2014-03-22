@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+
+using namespace std;
+
+typedef long long ll;
+bool flg[h+1][w+1]={false};
+string s;
+
+int dfs(int x, int y){
+    int mx = {1, -1, 0, 0};
+    int my = {0, 0, 1, -1};
+
+    for (int i = 0; i < 4; ++i)
+    {
+        int nx = x + mx[i];
+        int ny = y + my[i];
+        if(0<=x && x<s[i].size()
+           && 0<=y && y<s.size()
+           && s[x][y] == s[nx][ny]){
+            flg[nx][ny]==true;
+            dfs(nx, ny);
+        }            
+    }
+}
+
+int main(){
+    int h, w;
+    int cn =0;
+    cin >> h >> w;
+    for (int i = 0; i < h; ++i)
+    {
+        getline(cin, s[i]);
+    }
+    for (int x = 0; x < w; ++i)
+    {
+        for (int y = 0; y < h; ++i)
+        {
+            if(flg[x][y]==false){
+                dfs[x][y];
+                cn++;
+            }
+        }
+    }
+    
+    
+	return 0;
+}
+

@@ -1,0 +1,130 @@
+# -*- coding: utf-8 -*-
+#課題3_13
+
+module MyEnumerable
+  def ==(other)
+    if !other.kind_of?(self.class) || self.size() != other.size() then
+      puts "a!"
+      return false
+    end
+    if self.kind_of?(Hash) then
+      puts "a!!!!"
+      i=0
+      self.each{|key|
+        array1[i]=self[key]
+        array2[i]=other[key]
+
+        puts self[key]
+        puts array1[i]
+        puts "a!!"
+
+        i+=1
+      }
+    end
+    if self.kind_of?(Array) then
+      puts "a!!!!!!!!"
+      j=0
+      self.each{|key|
+        array1[j]=key
+        array2[j]=other[j]
+        j+=1
+      }
+    end
+
+    k = 0
+    array1.each{|key|
+#      puts key
+#      puts other
+      if !key.equal?(array2[k]) then
+#        puts "a!!"
+        return false
+      end
+      k+=1
+    }
+    return true
+
+
+  end
+end
+
+
+class MyArray < Array
+  include MyEnumerable
+  def ==(other)
+#    i = 0
+#    self.each{|key|
+#      puts key
+#      puts other
+#      if !key.equal?(other[key]) then
+#        puts "a!!"
+#        return false
+#      end
+#      i += 1
+#    }
+#    return true
+  end
+end
+
+
+class MyHash < Hash
+  include MyEnumerable
+  def ==(other)
+#    if !other.kind_of?(self.class) then
+#puts "a!!!"
+#      return false
+#    end 
+#    self.each{|key|
+#      puts self[key]
+#      puts other[key]
+      
+#      if !key.equal?(other[key]) then
+#        puts "a!!!!"
+#        return false
+#      end
+#    }
+#    return true
+  end
+end
+
+#チェック部分（Array）
+class T
+end
+
+s1 = "xyz"
+s2 = "xyz"
+
+a = MyArray.new()
+a[0] = 2
+a[1] = s1
+a[2] = T
+
+b = MyArray.new()
+b[0] = 2
+b[1] = s2
+b[2] = T
+
+puts a == b 
+
+#チェック部分（Hash）
+class T
+end
+
+s1 = "xyz"
+s2 = "xyz"
+
+a = MyHash.new
+a["integer"] = 2
+a["variable"]= s2
+a["class"]=T  
+
+b = MyHash.new
+b["integer"] = 2
+b["variable"]= s2
+b["class"]=T  
+
+puts a == b
+
+puts "a!!!!!"
+=begin
+MyHashのところがうまく動いていない（同じ問題）
+=end

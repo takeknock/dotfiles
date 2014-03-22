@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    int n;
+    while(cin>>n, n){
+        int  field[101][101];
+        memset(field, 0, sizeof(field));
+        for (int i = 0; i < n; ++i){
+            int w, h;
+            cin >> w >> h;
+            field[h][w] = 1;
+        }
+        int s, t;
+        //sは幅、tが高さ
+        cin >> s >> t;
+        int max = 0;
+        //左上の点の位置で全探索
+        for (int i = 0; i < 100-s; ++i){
+            for (int j = 0; j < 100-t; ++j){
+
+                int p = 0;
+                
+                for (int k = i; k < i+s; ++k){
+                    for (int l = j; l < i+t; ++l){
+                        p += field[l][k]; 
+                    }
+                }
+                if(p > max){
+                    max = p;
+                }
+            }
+        }
+        cout << max << endl;
+    }
+}

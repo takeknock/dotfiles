@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int prime[2000];
+    memset(prime, 0, 2000);
+    prime[0]=2;
+    bool prime[10000]={true};
+    for (int i = 2; i*i <= 10000; ++i)
+    {
+        for(int j = 2; i*j <= 10000; ++j){
+            prime[i*j]=false;
+        }
+    }
+    int n;
+    cin >> n;
+    int a[n+1];
+    int b[n+1];
+    for (int i = 0; i < n; ++i)
+    {
+        
+    }
+    
+    return 0;
+}

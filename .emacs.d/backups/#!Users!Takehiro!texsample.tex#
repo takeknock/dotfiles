@@ -1,0 +1,337 @@
+\documentclass[a4j]{jarticle}
+\usepackage{ascmac}
+
+\title{LaTeX説明書(簡易版)}
+\author{飯山将晃}
+\date{2010/05/19}
+% \date{}はあってもなくても問題ありません．
+
+%%\documentclassと\begin{document}との間の部分を「プリアンブル」と呼びます．
+%%プリアンブル部分ではフォントの設定等LaTeXの詳細な設定を行うことができますが，
+%%本講義の範囲を超えているため今回は説明しません．
+
+%本文は\begin{document}から\end{document}との間に書きます．
+\begin{document}
+
+\maketitle %タイトルを出力します．必須ではありません．
+
+\abstract{
+本文書はLaTeXのサンプルファイル兼説明書です．
+本文中に書けなかった説明がこのソース中に記載しているので，本ソースとその出力結果を
+比較しながら学習するとさらに知識が深まります．
+
+サンプルソース上で\%で始まる行にLaTeXに関する詳細な説明を書いています．
+また，\%\%で始まる行にはLaTeXに関するさらに詳細な説明を書いていますが，
+LaTeXの初心者のうちは読み飛ばしてもらって構いません．
+
+また，参考文献にLaTeX初心者向けのホームページのURLを記載しています．そちらも参考にしてください．
+}
+
+\section{LaTeX文書の構成}
+
+\begin{screen}
+%verbatim命令を使うと，ソースに書いたものがそっくりそのまま出力されます．
+\begin{verbatim} 
+\documentclass[オプション]{文書スタイル}
+　「プリアンブル」
+\begin{document}
+　「本文」
+\end{document}
+\end{verbatim}
+\end{screen}
+
+$\backslash$documentclass,
+$\backslash$begin\{document\},
+$\backslash$end\{document\},
+の3行は必須です．この3行がないと必ずエラーが発生します．
+
+「本文」の部分に記述されたものが最終的に出力されます．
+
+「プリアンブル」ではフォントの設定等LaTeXの詳細な設定を行うことができますが，
+本講義の範囲を超えているため今回は説明しません．
+
+\subsection{LaTeXで用いる「命令」}
+$\backslash$documentclassなどは「命令」と呼ばれています
+\footnote{「コマンド」とも呼ばれています．}．「命令」は
+\begin{itemize}
+\item 必ず「$\backslash$」(もしくは円マーク)で始まり，その後にアルファベットが続く文字列で表されます．
+\item $\backslash$も含めすべて半角文字です．全角文字はLaTeXの命令では用いません．
+\item 命令は大文字と小文字を別の文字として区別します．
+\end{itemize}
+という記述ルールがあります．
+
+\vspace{1zh} %1行分の空白をあける命令
+
+「命令」にはさまざまな種類がありますが，記述方法は大きく分けて以下の3通りです．
+\begin{itemize}
+\item $\backslash$命令名[オプション]\{内容\} \\
+　「[オプション]」部分は省略することができます．
+\item $\backslash$begin\{コマンド名\}〜$\backslash$end\{コマンド名\} \\
+ $\backslash$beginと$\backslash$endは必ず対で用います．$\backslash$beginだけ，もしくは$\backslash$endだけを用いると必ずエラーが発生します．
+\item $\backslash$コマンド名　\\
+ 「コマンド名」の右側には1文字以上の空白を入れておく必要があります．（そうしないと何処までがコマンド名なのかコンピュータが判読できません）
+\end{itemize}
+
+\section{文章の入力}
+\subsection{特殊文字}
+大抵の文字は「本文」に記述するとそのまま出力されますが，
+以下の記号だけは特殊な指定が必要です．
+\begin{screen}
+ \% \$ \# \& \_ \{ \} \~{} \& $\backslash$
+\end{screen}
+それぞれ，
+\begin{screen}
+\begin{verbatim}
+ \% \$ \# \& \_ \{ \} \~{} \& $\backslash$
+\end{verbatim}
+\end{screen}
+と記述すると記号が出力されます．
+
+\subsection{空白・改行}
+連続して空白を何文字入れても「1文字分の空白」として扱われます．
+
+ソース中で改行して段落分けをしても出力文書では反映されません．
+例えば，ソース中で
+\begin{screen}
+\begin{verbatim}
+本日は晴天なり．
+なり．
+なり．
+\end{verbatim}
+\end{screen}
+と書いた場合でも，出力結果は
+\begin{screen}
+本日は晴天なり．
+なり．
+なり．
+\end{screen}
+となります．
+改行したい場合は空っぽの行で文章を区切る必要があります．
+
+例えば，ソース中で
+\begin{screen}
+\begin{verbatim}
+本日は晴天なり．
+
+なり．
+なり．
+\end{verbatim}
+\end{screen}
+と書くと，
+\begin{screen}
+本日は晴天なり．
+
+なり．
+なり．
+\end{screen}
+と出力されます．
+
+\section{主な命令}
+\subsection{文書全体の構成}
+\subsubsection{$\backslash$documentclass[オプション]\{文書スタイル\}}
+文書全体のレイアウトを設定する命令です．さまざまな機能がありますが，
+当面は
+$\backslash$documentclass\{jarticle\}
+と指定しておきます．
+
+\subsubsection{$\backslash$begin\{document\}〜$\backslash$end\{document\}}
+文書の開始と終了箇所を指定します．
+
+\subsection{文書の構造化}
+part(部)，chapter(章)，section(節),subsection(小節)，subsubsection(小々説)，
+paragraph(段落)，paragraph(小段落)　の7段階で文書を構造化することができます．
+
+次のように指定します．
+\begin{screen}
+\begin{verbatim}
+\section{見出し}
+\end{verbatim}
+\end{screen}
+ただし，jarticleで使用できるのはsection〜subparagraphの5段階です．
+
+節番号などは自動的に決定されます．こちらで指定する必要はありません．
+\footnote{
+節番号を付加したくない場合は$\backslash$section*\{見出し\}のように*記号を\{の前に書きます．
+節番号等を我々が指定することもできます．
+}
+
+以下に例を示します．
+\begin{screen}
+\begin{verbatim}
+\subsection{subsectionはこんな感じ}
+\subsubsection{subsubsectionはこんな感じ}
+\paragraph{paragraphはこんな感じ}
+\subparagraph{subparagraphはこんな感じ}
+\end{verbatim}
+\end{screen}
+
+\begin{screen}
+\subsection{subsectionはこんな感じ}
+\subsubsection{subsubsectionはこんな感じ}
+\paragraph{paragraphはこんな感じ}
+\subparagraph{subparagraphはこんな感じ}~
+\end{screen}
+
+\section{箇条書き}
+箇条書きも可能です．以下の３種類の箇条書きが可能です．いずれもbeginで始まりendで終わる書き方です．箇条書きの項目は$\backslash$item 命令を用いて指定します．
+\begin{itemize}
+\item itemize: 行の先頭に・が付きます
+\item enumerate: 行の先頭に通し番号が付きます．
+\item description: 行の先頭に見出し語をつけることができます．
+\end{itemize}
+
+使用例
+\begin{screen}
+\begin{verbatim}
+\begin{itemize}
+\item 箇条書きその１
+\item 箇条書きその１
+\item 箇条書きその１
+\end{itemize}
+
+\begin{enumerate}
+\item 箇条書きその２
+\item 箇条書きその２
+\item 箇条書きその２
+\end{enuberate}
+
+\begin{description}
+\item[見出し] 箇条書きその３
+\item[見出し] 箇条書きその３
+\item[見出し] 箇条書きその３
+\end{description}
+\end{verbatim}
+\end{screen}
+
+\begin{screen}
+\begin{itemize}
+\item 箇条書きその１
+\item 箇条書きその１
+\item 箇条書きその１
+\end{itemize}
+
+\begin{enumerate}
+\item 箇条書きその２
+\item 箇条書きその２
+\item 箇条書きその２
+\end{enumerate}
+
+\begin{description}
+\item[見出し] 箇条書きその３
+\item[見出し] 箇条書きその３
+\item[見出し] 箇条書きその３
+\end{description}
+\end{screen}
+
+
+箇条書きを入れ子にすることも出来ます．
+\begin{screen}
+\begin{verbatim}
+\begin{description}
+\item[入れ子の例]　入れ子にすることも可能
+  \begin{enumerate}
+    \item 連番その1
+      \begin{itemize}
+        \item aaa
+        \item bbb
+      \end{itemize}
+    \item 連番その2
+  \end{enumerate}
+\end{description}
+\end{verbatim}
+\end{screen}
+
+\begin{screen}
+\begin{description}
+\item[入れ子の例]　入れ子にすることも可能
+  \begin{enumerate}
+    \item 連番その1
+      \begin{itemize}
+        \item aaa
+        \item bbb
+      \end{itemize}
+    \item 連番その2
+  \end{enumerate}
+\end{description}
+\end{screen}
+
+%入れ子にする場合，beginとendとの対応が変にならないように気をつける必要があります．
+%駄目な例: 
+%\begin{itemize}
+%  \begin{enumberate}
+%    \item hoge
+%  \end{itemize}
+%\end{enumerate}
+
+
+\section{書体・文字サイズ}
+書体として{\bf ゴシック体}と明朝体が用意されています．
+英数字の場合は{\bf bold},{\it italic}, {\em emphasis}などが用意されています．
+
+文字の大きさは{\tiny tiny},{\scriptsize scriptsize},{\footnotesize footnotesize},
+{\small small}, {\normalsize normalsize}, {\large large}, {\Large Large}, 
+{\LARGE LARGE}, {\huge huge}, {\Huge Huge}のように指定することができます．
+
+\begin{screen}
+\begin{verbatim}
+書体として{\bf ゴシック体}と明朝体が用意されています．
+英数字の場合は{\bf bold},{\it italic}, {\em emphasis}などが用意されています．
+
+文字の大きさは{\tiny tiny},{\scriptsize scriptsize},
+{\footnotesize footnotesize},{\small small}, {\normalsize normalsize},
+{\large large}, {\Large Large}, {\LARGE LARGE}, {\huge huge}, {\Huge Huge}
+のように指定することができます．
+\end{verbatim}
+\end{screen}
+
+文字の書体や大きさを指定する場合，必ず\{\}で範囲を指定してください．
+そうしないと文書全体の書体や文字サイズが変更されてしまいます．
+
+\section{タイトル等}
+タイトルや著者名，日付などの情報はプリアンブルに記載します．
+\begin{screen}
+\begin{verbatim}
+\documentclass{jarticle}
+
+\title{LaTeX説明書(簡易版)}
+\author{飯山将晃}
+\date{2008/05/21}
+
+\begin{document}
+\maketitle
+
+\end{document}
+
+\end{verbatim}
+\end{screen}
+
+$\backslash$title\{タイトル名\}で文書のタイトル，
+$\backslash$author\{著者名\}で著者名を，
+$\backslash$date\{日付\}で日付を指定します．
+
+$\backslash$title\{\}と$\backslash$author\{\}は省略できません
+（省略するとエラーが出ます）．
+
+$\backslash$date\{\}は省略可能です．省略するとplatexコマンドを実行した日付が
+出力されます．
+
+なお，本文中に$\backslash$maketitle命令を書かないとタイトル等は出力されません．
+
+%\section*{本日の課題}
+%\begin{screen}
+%LaTeXを用いて自己紹介の文章を作成してください．
+%\begin{itemize}
+%\item タイトルは「自己紹介」にする．
+%\item 自分の名前を入れる．
+%\item 本文は自由に書いてよし．
+%\end{itemize}
+%宛先はiiyama@econ.kyoto-u.ac.jpまでLaTeXのソースファイルを添付して送信すること．
+%件名はis1-6-xxxxxxxxxx (xxxxxxxxxは学籍番号)．
+%\end{screen}
+
+\begin{thebibliography}{10}
+\bibitem{latex} ``LaTeX2$\epsilon$への道'', http://www.aist-nara.ac.jp/\~{}masa-n/misc/cmc/j-kiso2001/iabasic/jlshort/jlshort.html
+\bibitem{TeX Wiki} ``TeX wiki'', http://oku.edu.mie-u.ac.jp/\~{}okumura/texwiki/
+\bibitem{okumura} ``LaTeX2e 美文書作成入門'', 奥村晴彦
+\end{thebibliography}
+\end{document}

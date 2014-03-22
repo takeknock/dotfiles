@@ -1,0 +1,52 @@
+# -*- coding: utf-8 -*-
+#課題3_12(each_keyのところeachで出来るらしいけど、どうやるの？)
+class MyHash < Hash
+  def ==(other)
+#puts "起動！"
+    if !self.kind_of?(Hash) || !other.kind_of?(Hash) || self.size() != other.size() then
+      return false
+    end 
+    #ハッシュでない、長さが違う場合にはじく
+    self.each_key{|key|
+#    i=0
+#    self.each{|x|
+#puts key#デバッグ
+      if !self[key].equal?(other[key]) then
+#      if !x.equal?(other[i])then
+        #      if self[key].object_id!=other[key] then
+        return false
+      end
+#      i += 1
+    }
+    #もし、各要素のオブジェクトが違うなら、false
+    return true
+  end
+end
+
+#チェック部分1
+class T
+end
+
+s1 = "xyz"
+s2 = "xyz"
+
+a = MyHash.new
+a["integer"] = 2
+a["variable"]= s1
+a["class"]=T  
+
+b = MyHash.new
+b["integer"] = 2
+b["variable"]= s2
+b["class"]=T  
+
+#puts s1.equal?(s2)
+puts a == b
+
+=begin
+課題2-10のArrayに対して行った変更のように、Hashに対しても変更を行った。違う点は、ハッシュの要素それぞれにアクセスするのに、each_keyメソッドを用いた点である。
+
+出力結果
+false
+
+=end

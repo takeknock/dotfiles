@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+#課題3_14（こんな感じでいいのか？聞いてみたい所）
+module M
+  def m
+    a = [1,2,3,4]
+    puts "module側"
+    puts a.object_id
+  end
+end
+
+class A
+  include M
+  def m
+    super
+    a = [1,2,3,4]
+    puts "includeした側"
+    puts a.object_id
+  end
+end
+
+A.new.m
+
+=begin
+モジュール内のトップレベルのメソッド内でローカル変数aを使用し、そのモジュールをincludeしたクラスで、includeの直後のメソッド内でローカル変数を使用した。そして、それぞれobject_idを出力した所、異なった値が出力された。
+このことから、これら２つは別のオブジェクトであり、よって、別の変数となっていることがわかる。
+
+出力結果
+module側
+70271130421980
+includeした側
+70271130421900
+
+=end

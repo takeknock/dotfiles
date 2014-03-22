@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+int main(){
+    int n, i=0;
+    string s;
+    int ch=0, cp=0, co=0;
+    cin >> n;
+    while(i<n)
+    {
+        cin >> s;
+        if(s=='HIT')
+            ch++;
+        if(ch==4){
+            ch--;
+            cp++;
+        }
+        if(s=='OUT')
+            co++;
+        if(co==3)
+            i++;
+        if(s=='HOMERUN'){
+            cp+=ch;
+            ch=0;
+        }
+    }
+    
+	return 0;
+}
+

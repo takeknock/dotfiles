@@ -1,0 +1,7 @@
+for(int i=0; i<altitude.size()-1; i++){
+			if(altitude[i]<altitude[i+1]){
+				res += altitude[i+1]-altitude[i];
+				altitude[i+1]= altitude[i];
+			}
+		}
+

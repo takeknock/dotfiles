@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+
+using namespace std;
+
+typedef long long ll;
+
+int main(){
+    int a, b, c, d, e, na, nb, nc;
+    while(cin >> a >> b >> c >> d >> e){
+        cin >> na >> nb >> nc;
+        ll sum = a*na+b*nb+c*nc;
+        ll ans;
+        int n = na + nb + nc;
+        if(n>=d){
+            if(sum>n*e){
+                ans = n*e;  
+            }else
+                ans = sum;
+        }else{
+            if(sum>d*e)
+                ans = d*e;
+            else
+                ans = sum;
+        }
+        cout << ans << endl;
+    }
+	return 0;
+}
+

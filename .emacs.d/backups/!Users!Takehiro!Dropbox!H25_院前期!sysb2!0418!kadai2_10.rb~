@@ -1,0 +1,70 @@
+# -*- coding: utf-8 -*-
+#4/18出題、課題2_10
+
+class T
+end
+
+s1 = "xyz"
+s2 = "xyz"
+
+a = [2, s1, T]
+b = [2, s2, T]
+
+if a==b then
+  puts "TRUE!"
+else
+  puts "FALSE!"
+end
+  
+=begin
+Arrayクラスにおいては、「==」で配列の各要素を比較する場合、そこに入っている全要素がそれぞれ同じならtrueを返す、そうでなければfalseを返すという定義になっているようである。
+
+上記プログラムの出力結果
+TRUE!
+=end
+
+class T
+end
+
+class MyArray < Array
+  def ==(b)
+    i = 0
+    flg = true
+    self.each{|x|
+      if x.equal?(b[i]) then
+#        puts x #debug
+#        puts i #debug
+      else
+        flg = false
+#        puts "aaaaaaaaaa" #debug
+        break
+      end
+      i += 1
+    }
+    return flg
+  end
+end
+
+#チェック部分
+s1 = "xyz"
+s2 = "xyz"
+
+a = MyArray.new()
+a[0] = 2
+a[1] = s1
+a[2] = T
+
+b = MyArray.new()
+b[0] = 2
+b[1] = s2
+b[2] = T
+
+if a == b then
+  puts "TRUE!"
+else
+  puts "FALSE!"
+end
+
+=begin
+
+=end

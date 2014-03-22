@@ -1,0 +1,92 @@
+# -*- coding: utf-8 -*-
+#課題3_8
+#プログラム1
+class A
+  def initialize(test)
+    $i=test
+    puts "クラスAのinitializeが実行された"
+  end
+  def am
+  end
+end
+
+class B < A
+  def initialize(test)
+    super
+    puts "クラスBのinitializeが実行された"
+    puts $i
+  end
+  def bm
+    puts $i
+  end
+end
+
+y=B.new("てすと")
+y.initialize
+
+
+=begin
+上記のプログラム1の26行目のように
+
+y.initialize
+
+とクラスBのオブジェクトでinitializeメソッドを実行することで、同じクラスやサブクラスのメソッド外からinitializeメソッドを呼び出そうとしたが、そのオブジェクトのクラスのメソッドを実行するときに実行されるのみで、メソッド名を指定して実行する分の実行は出来なかった。このことから、まずはpublicではないことがわかった。むしろ、エラーメッセージに
+
+... private method "initialize" called ...
+
+というのがあるので、privateメソッドなのではないかと当たりをつけて次の検証を行う。
+
+実行結果
+クラスAのinitializeが実行された
+クラスBのinitializeが実行された
+てすと
+kadai3_8.rb:25:in `<main>': private method `initialize' called for #<B:0x007ffef1888ab8> (NoMethodError)
+=end
+
+=begin
+#プログラム2
+class A
+  def initialize(test)
+    $i=test
+    puts "クラスAのinitializeが実行された"
+  end
+  def am
+    puts "am:privateが実行された"
+  end
+  private:am
+end
+
+class B < A
+  def initialize(test)
+    super
+    puts "クラスBのinitializeが実行された"
+    puts $i
+  end
+  def bm
+    am
+    initialize
+    puts $i
+  end
+end
+
+y=B.new("てすと")
+y.bm
+
+=end
+=begin
+このプログラム2では、クラスBのオブジェクトyを作り、yにクラスBのオブジェクトbmを実行させようとした。すると、bmが起動される前に自動的に実行されるinitializeメソッドは実行され、またレシーバを伴わない形でprivateのメソッドamも実行された。しかし、同じようにレシーバを伴わない形で
+
+initialize
+
+としてメソッドbmから自分の所属するクラスのinitializeメソッドを実行させようとしたら、実行できずエラーメッセージが出た。このことから、同じクラスやサブクラスのメソッド内で自分に対しても実行できないことがわかり、initializeメソッドは、privateよりも強い縛りがかかっていることがわかった。よって、解答は、"上のどれでもない特別なメソッド"である。
+
+実行結果
+クラスAのinitializeが実行された
+クラスBのinitializeが実行された
+てすと
+am:privateが実行された
+kadai3_8.rb:63:in `initialize': wrong number of arguments (0 for 1) (ArgumentError)
+from kadai3_8.rb:70:in `bm'
+from kadai3_8.rb:76:in `<main>'
+
+=end

@@ -1,0 +1,5 @@
+\documentclass{jarticle}
+\begin{document}
+\section{今日の天気}
+本日は晴天なり
+\end{document}

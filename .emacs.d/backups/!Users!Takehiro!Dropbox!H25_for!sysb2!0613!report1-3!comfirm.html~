@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+	<meta charset="UTF-8" />
+	<title>投稿結果確認</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" media="screen, projection" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.min.js"></script>　
+
+  </head>
+  <body>
+	<div class="container">
+	  <div class="header">
+  
+	  </div>
+	  <table class="table table-bordered">
+		<tr>
+		  <th>氏名</th>
+		  <th>書籍名</th>
+		  <th>著者名</th>
+		</tr>
+		<tr>
+		  <td>ああああ</td>
+		  <td>いいいい</td>
+		  <td>うううう</td>
+		</tr>
+	  </table>
+	  <p>以上の結果でよろしければ送信ボタンを押して下さい。修正する場合は、戻るボタンを押すと入力画面に戻ることができます。</p>
+	  <form method="" id="" action="./contents.html">
+		<div class="form-actions">
+		<button href="./contents.html" type="submit" name="" class="btn btn-primary">送信する</button>
+		<button href="./index.html" type="submit" name="" class="btn">戻る</button>
+		</div>
+	  </form>
+	</div>
+  </body>
+</html>

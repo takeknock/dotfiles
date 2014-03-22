@@ -1,0 +1,59 @@
+/**
+ *  Make Purse Light (Problem B, Practice Contest for Japan Domestic, 2005-06-19)
+ *  by Kenji Inoue, 2006-12-22
+ **/
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int m, c[4], p[4], r[4]; // money, coins, paid coins, returned coins
+    int d[4] = {10, 50, 100, 500};
+
+    bool firstline = true;
+    while (cin >> m, (m)) {
+        if (!firstline) { cout << endl; }
+        firstline = false;
+
+        for (int i=0; i<4; i++) { cin >> c[i]; }
+
+        int min=20*20*20*20, minc[4];
+        memset(minc, 0, sizeof(minc));
+        for (p[0]=0; p[0]<=c[0]; p[0]++) {
+            for (p[1]=0; p[1]<=c[1]; p[1]++) {
+                for (p[2]=0; p[2]<=c[2]; p[2]++) {
+                    for (p[3]=0; p[3]<=c[3]; p[3]++) {
+                        memset(r, 0, sizeof(r));
+
+                        int sum = 0;
+                        for (int i=0; i<4; i++) {
+                            sum += d[i] * p[i];
+                        }
+                        if (sum < m) { continue; }
+
+                        sum -= m;
+                        for (int i=3; i>=0; i--) {
+                            while (sum >= d[i]) { sum -= d[i]; r[i]++; }
+                        }
+
+                        int remain = 0;
+                        for (int i=0; i<4; i++) {
+                            remain += c[i] - p[i] + r[i];
+                        }
+                        if (remain < min) {
+                            min = remain;
+                            for (int i=0; i<4; i++) { minc[i] = p[i]; }
+                        }
+                    }
+                }
+            }
+        }
+
+        for (int i=0; i<4; i++) {
+            if (minc[i] > 0) {
+                cout << d[i] << " " << minc[i] << endl;
+            }
+        }
+    }
+}

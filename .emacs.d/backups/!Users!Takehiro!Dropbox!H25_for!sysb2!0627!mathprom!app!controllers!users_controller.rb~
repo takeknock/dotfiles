@@ -1,0 +1,51 @@
+# -*- coding: utf-8 -*-
+class UsersController < ApplicationController
+  def index
+    @users = User.all
+    if current_user == nil
+      redirect_to new_session_path, :notice => "ログインしてください！"
+    end
+
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to root_url, :notice => "登録が完了しました。"
+    else
+      render "new"
+    end
+  end
+
+  def comfirm
+    
+  end
+  def user_params
+      params.require(:user).permit(:name, :email,:password, :password_confirmation)
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+
+  end
+  def destroy
+    @user = User.find(user_params)
+    @user.destroy
+    redirect_to user_path
+    
+    if @content.destroy
+      redirect_to users_path, :notice => "ユーザを削除しました"
+    else
+      render :action => "new", :notice => "削除に失敗しました。ユーザを指定しなおしてください。"
+    end
+  end
+
+
+end

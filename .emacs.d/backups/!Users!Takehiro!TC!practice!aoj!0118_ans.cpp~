@@ -1,0 +1,63 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+
+using namespace std;
+
+typedef long long ll;
+
+int dx[4] = {1, -1, 0, 0};
+int dy[4] = {0, 0, 1, -1};
+
+int h, w;
+string orc[101];
+
+//êŠ‚ÆA‚»‚±‚É“ü‚Á‚Ä‚¢‚é•¶š‚ğ‚à‚½‚¹‚é
+void dfs(int x, int y, char c){
+    orc[x][y]=' ';
+    for (int i = 0; i < 4; ++i)
+    {
+        int nx = x+dx[i];
+        int ny = y+dy[i];
+        if (0<=nx && nx<w && 0<=ny && ny<h && orc[nx][ny]==c)
+        {
+            dfs(nx, ny, c);
+        }
+    }
+    return;
+}
+
+int main(){
+    int ans = 0;
+    while(cin>>h>>w, h||w){
+        for (int i = 0; i < h; ++i)
+        {
+            cin >> orc[i];
+        }
+        for (int i = 0; i < h; ++i)
+        {
+            for (int j = 0; j < w; ++j)
+            {
+                if(orc[i][j]!=' '){
+                    dfs(i, j, orc[i][j]);
+                    ans++;
+                }
+            }
+        }
+    cout << ans << endl;
+    }
+
+	return 0;
+}
+

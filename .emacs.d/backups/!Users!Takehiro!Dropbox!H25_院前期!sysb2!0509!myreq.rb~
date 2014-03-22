@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+def m
+a=[1,2,3,4]
+puts "読み込まれるファイル側のローカル変数aのid:"
+puts a.object_id
+end

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+	<meta charset="UTF-8" />
+	<title>最近追加されたコンテンツ</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" media="screen, projection" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.min.js"></script>　	
+  </head>
+  <body>
+	<div class="container">
+	  
+	<p>登録が完了しました。</p>
+	<div class="btn-toolbar">
+	  <a href="./index.html"><button class="btn" type="button">メインメニューに戻る</button></a>
+	  <a href="./register.html"><button class="btn" type="button">登録画面に戻る</button></a>
+	  <a href="./search.html"><button class="btn" type="button">本を検索する</button></a><br/>
+	</div>
+	<br/>
+
+	最近追加されたコンテンツ（表示件数10|<a href="#">20</a>|<a href="#">30</a>）
+	<table class="table table-striped table-bordered" width="" cellspacing="" cellpadding="" border="">
+	  <thead>
+	  <tr>
+		<th>#</th>
+		<th>氏名</th>
+		<th>書籍名</th>
+		<th>著者名</th>
+	  </tr>
+	  </thead>
+	  <tbody>
+	  <tr>
+		<td>1</td>
+		<td>ああああ</td>
+		<td>いいいい</td>
+		<td>うううう</td>
+	  </tr>
+	  <tr>
+		<td>2</td>
+		<td>ああああ</td>
+		<td>いいいい</td>
+		<td>うううう</td>
+	  </tr>
+	  <tr>
+		<td>3</td>
+		<td>ああああ</td>
+		<td>いいいい</td>
+		<td>うううう</td>
+	  </tr>
+	  <tr>
+		<td>4</td>
+		<td>ああああ</td>
+		<td>いいいい</td>
+		<td>うううう</td>
+	  </tr>
+	  <tr>
+		<td>5</td>
+		<td>ああああ</td>
+		<td>いいいい</td>
+		<td>うううう</td>
+	  </tr>
+	  <tr>
+		<td>6</td>
+		<td>ああああ</td>
+		<td>いいいい</td>
+		<td>うううう</td>
+	  </tr>
+	  <tr>
+		<td>7</td>
+		<td>ああああ</td>
+		<td>いいいい</td>
+		<td>うううう</td>
+	  </tr>
+
+	  </tbody>
+	</table>
+	
+	</div>
+  </body>
+</html>

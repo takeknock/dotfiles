@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+
+bool IsRed(int k, int i, int j){
+    if(k==0){ return true; }
+    if(k==1){ return !((i==1) && (j==1)); }
+    ll pow2k_1 = static_cast<ll>(pow(2.0,static_cast<double>(k-1))); ;
+    if((i>=pow2k_1)&&(j>=pow2k_1)){
+        return false;
+    }
+    return IsRed(k-1, i%pow2k_1, j%pow2k_1);
+}
+
+int main(){
+    int test_case_num;
+    std::cin >> test_case_num;
+    for(int case_number=0 ; case_number < test_case_num; ++case_number){
+        ll k, a, b;
+        std::cin >> k >> a >> b;
+        a-=1;
+        b-=1;
+        ll pow2k = static_cast<ll>(pow(2.0,static_cast<double>(k)));
+        std::cout << pow2k << std::endl;
+        ll answer = 0;
+        for(int i=a; i <= b; ++i){
+            for(int j=0; j < pow2k; ++j){
+                std::cout << i << " " << j << std::flush;
+                if(IsRed(k,i,j)){
+                    ++answer;
+                    std::cout << "R";
+                }
+                else {
+                    std::cout << "B";
+                }
+            }
+            std::cout << std::endl;
+        }
+        std::cout << "Case " << case_number << ": " << answer << "\n" << std::endl;
+    }
+	return 0;
+}
+

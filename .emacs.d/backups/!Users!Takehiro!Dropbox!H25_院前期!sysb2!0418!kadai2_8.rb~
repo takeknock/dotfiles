@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+y = nil
+
+#判定1。文字列はtrueを返す
+x = y || "foo"
+if x then
+puts "true"
+else
+puts "false"
+end
+
+#判定2。課題2_7と同様、変数yにnil以外の値があるなら、trueを返す。そうでなければ、falseを返す。そもそもxが定義されていなければ、エラーが出る。
+x = y
+if x then
+puts "true"
+else
+puts "false"
+end
+
+#判定3
+x = "foo"
+if x then
+puts "true"
+else
+puts "false"
+end
+
+=begin
+「x=y || "foo"」という式は、「||」のほうが「=」よりも演算子の優先順位が高いため、先に「||」の左側（ここではローカル変数y）と右側（ここでは"foo"という文字列）がtrueかfalseかを見て、どちらか一方がtrueの場合、xにtrueを代入する、という意味を持つ。文字列が比較演算子で比較された場合は、trueが返されるので、このxには、xが代入されている。
+
+上記のプログラムでは、yにnilを代入しているため、判定2においてのみfalseが返され、残りの判定ではtrueが返される。
+
+=end

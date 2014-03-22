@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cassert>
+int n, p;
+int NextMayor(){
+    int mayor[50];
+    memset(mayor, 0, sizeof(mayor));
+    int cup = p;
+    int s = 0;
+    while(1){
+        std::cout << "cup: " << cup << " {";
+        for(int i = 0; i < n; ++i){
+            std::cout << mayor[i] << " ";
+            if(mayor[i] == p){
+                return i;
+            }
+        }
+        std::cout << "}" << std::endl;
+        int m = int(cup/n);
+        int k = cup % n;
+        for(int i = 0; i < k; ++i){
+            ++(mayor[(s+i)%n]);
+        }
+        for(int i = 0; i < n; ++i){
+            if(mayor[i] == p){
+                return i;
+            }
+        }
+        cup = 0;
+        assert(cup==0);
+        for(int i = 0; i < n; ++i){
+            if(mayor[(s+k+i)%n] != 0){
+                cup = mayor[(s+k+i)%n];
+                mayor[(s+k+i)%n] = 0;
+                s = (s+k+1+i)%n;
+                break;
+            }
+        }
+    }
+    
+}
+
+int main(){
+    std::cout << "hello" << std::endl;
+    while(1){
+        std::cin >> n;
+        if(n==0){
+            break;
+        }
+        std::cin >> p;
+        std::cout << NextMayor() << std::endl;
+    }
+}

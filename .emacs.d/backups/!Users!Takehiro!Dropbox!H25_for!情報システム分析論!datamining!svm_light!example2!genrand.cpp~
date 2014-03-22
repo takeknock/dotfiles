@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <iostream>
+#include "MT.h"
+
+using namespace std;
+int main(){
+    int i;
+    init_genrand(10);
+    for(i=0;i<100;i++){
+        cout << 1 << " " << "1:" << genrand_int32()<<endl;
+    }
+    return 0;
+}

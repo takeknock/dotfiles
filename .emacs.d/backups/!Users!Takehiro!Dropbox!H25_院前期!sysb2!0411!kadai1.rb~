@@ -1,0 +1,87 @@
+# -*- coding: utf-8 -*-
+#4/11課題１
+class Car 
+  def car
+    puts "car"
+  end
+  def desk
+    puts "desk"
+  end
+end
+  
+class Desk
+  def car
+    puts "car"
+  end
+  def desk
+    puts "desk"
+  end
+end
+
+#4/11課題２
+class Ex2a
+  def initialize(nameStr)
+    @name = nameStr
+  end
+  def out
+    puts "2a: "+@name
+  end
+end
+class Ex2b < Ex2a
+  def initialize(nameStr)
+    @name = nameStr
+  end
+  def out
+    puts "2b: "+@name
+  end
+end
+a = Ex2b.new("てすと")
+a.out
+
+#出力はサブクラスである2bのメソッドからのものと出力されました。
+
+#4/11課題３
+class Ex3a
+  def initialize(nameStr)
+    @name = "3aに"+nameStr+"が入りました"
+  end
+  def out
+    puts "2a: "+@name
+  end
+end
+class Ex3b < Ex3a
+  def initialize(nameStr)
+    @name = "3bに「"+nameStr+"」が入りました"
+  end
+  def out
+    puts "3b: "+@name
+  end
+end
+class Ex3c < Ex3b
+end
+a = Ex3c.new("てすと")
+a.out
+
+#サブクラスのサブクラスである、Ex3cにオブジェクトを作り、outメソッドを参照して実行しています。
+#3b（２番めのクラス階層のクラスのメソッドを実行しています）
+
+
+#4/11課題４
+class Ex4
+  def test
+    t = "ローカル変数"
+    @t = "インスタンス変数"
+    $t = "グローバル変数"
+    puts t+": 変数内で出力";     puts @t+": 変数内で出力";     puts $t+": 変数内で出力"; 
+  end
+  def out
+    puts t+": 別変数で出力";     puts @t+": 別変数で出力";     puts $t+": 別変数で出力"; 
+  end
+end
+a = Ex4
+
+
+#
+#
+#
+

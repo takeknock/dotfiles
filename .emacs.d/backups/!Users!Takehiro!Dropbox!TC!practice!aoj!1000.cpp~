@@ -1,0 +1,84 @@
+//サンプルインプットは合ってるけど、システムテストで落ちる。入ってる順番に答えろ、ってのを満たしていない可能性あり。
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+int main(){
+    int n;
+    vector <int> seq;
+    while(cin >> n){
+    seq.clear();
+        if (n==0)
+            break;
+        //vector <char> a;
+        bool flg = false;
+        map <int, ll> a;
+        for (int i = 0; i < n; ++i) 
+        {
+            int id;
+            int p, q;
+            bool flg1 = false;
+            cin >> id >> p >> q;
+            map <int, ll>::iterator it = a.begin();
+            if (a.empty())
+            {
+                a.insert(map<int, ll>::value_type(id, p*q));
+                flg1 = true;
+                seq.push_back(id);
+            }
+            /*           else if(a.size()==1){
+                if(id == (*a.begin()).first){
+                    a.insert(map<int, int>::value_type(id, (*it).second+p*q));
+                    flg1 = true;
+                }
+            }
+            */ else{                
+                while(it != a.end()){ //a.size()>0のときのみ有効
+                    if (id == (*it).first)
+                    {
+//                        int b = (*it).second + p * q;
+//                        a.erase(id); //ちゃんと消してやる必要あり
+//                        a.insert(map<int, int>::value_type(id, b));
+                        a[id]+=p*q;
+                        flg1 = true;
+//                        cout << "equal" << endl;
+                        break;
+                    }
+                    ++it;
+                }
+            }
+            if(!flg1){
+                a.insert(map<int, int>::value_type(id, p*q));
+                seq.push_back(id);
+            }
+        }
+        for(int i=0;i<seq.size();i++){
+            if (a[seq[i]] >= 1000000)
+            {
+                cout << seq[i] << endl;
+                flg = true;
+            }
+        }
+        //--it;
+//        --it;
+        if(!flg)
+            cout << "NA" << endl; //cout << (*it).second << endl;
+    }
+	return 0;
+}
+

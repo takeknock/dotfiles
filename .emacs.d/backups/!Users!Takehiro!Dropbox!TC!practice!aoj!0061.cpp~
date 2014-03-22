@@ -1,0 +1,50 @@
+//連想配列にid、解答数データ読み込んで、それを回答数で昇順ソートして、cnt=1から回答数が違ったらcnt++してid、cntの連想配列を作成する。そして、idを受け取って、順位を返す連想配列を作成する。
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+int main(){
+    int id, sum;
+    vector <int> a;
+    map<int, int> rec;
+    while(cin >> id >> sum && (id || sum)){
+        rec.insert(map<int, int>::value_type(id, sum));
+    }
+    sort(rec.begin(), rec.end());
+    map<int, int> rank;
+    map<int, int>::iterator it = rec.begin();
+    int cnt = 1;
+    rank.insert(map<int, int>::value_type((*it).first, cnt));
+    map<int, int>::iterator itend = rec.end()--;
+    map<int, int>::iterator itnxt = rec.begin()++;
+    while(it != itend){
+        if ((*it).second != (*itnxt).second)
+        {
+            cnt++;
+        }
+        rank.insert(map<int, int>::value_type((*itnxt).first, cnt));
+        it++;
+        itnxt++;
+    }
+    
+    while(cin >> id){
+        cout << rank[id] << endl;
+    }
+	return 0;
+}
+

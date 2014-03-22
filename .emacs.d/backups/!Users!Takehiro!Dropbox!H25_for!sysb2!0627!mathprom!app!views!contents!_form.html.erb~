@@ -1,0 +1,53 @@
+<%= form_for @content do |f| %>
+
+<% if @content.errors.any? %><!--なにかエラーが起きているなら以下を表示-->
+<div class="alert alert_error">
+  <h2>以下の内容を確認してください。</h2>
+  <ul>
+	<% for message in @content.errors.full_messages %>
+	<li><%= message %></li>
+	<% end %>
+  </ul>
+</div>
+<% end %><!--エラー表示ここまで-->
+<!--ここからフォーム-->
+<p><i class="icon-ok"></i>赤枠は必須項目</p>
+  <div class="field control-group error">
+	<%= f.label :title%>
+	<%= f.text_field :title%>
+  </div>
+  
+  <small></small>
+  <div class="field control-group error" id="n">
+	<%= f.label :edition%>
+	<%= select :content, :edition,[[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]]%>
+	<%#= f.text_field :edition%>
+  </div>
+
+  <div class="field control-group error">
+	<%= f.label :author%>
+	<%= f.text_field :author%>
+  </div>
+  <div class="field control-group error" id="n">
+	<%= f.label :number%>
+	<%= select :content, :number,[[0,0],[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]]%>
+	<%#= select :content, :number, [[1,1],[2],[3],[4],[5],[6],[7],[8],[9],[10]]%>
+  </div>
+  <div class="field" id="n">
+	<%= f.label :subscribe%>
+	<%= f.check_box :subscribe%>
+  </div>
+  <div class="field" id="n">
+	<%= f.label :borrowed%>
+	<%= f.check_box :borrowed%>
+  </div>
+  <div class="action">  
+	<%= f.submit :confirm => 'Create?' %>
+  </div>
+<!--<button class="btn btn-primary"></button>
+	<div class="button primary action"><%= f.submit %>	</div>
+-->
+<%#= link_to 'Delete', users_path, :confirm => 'Sure?', :method => :delete %>
+	
+<% end %>
+</div>

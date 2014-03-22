@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+#4/18 : 課題2_5
+class Ex5
+  def loop
+    c = $d.to_s
+    a = "output" + c #文字列リテラル 
+    puts a    
+  end
+end
+a = Ex5.new
+for $d in 1..10 do
+  a.loop
+end
+
+=begin
+グローバル変数@dに1から10までの数字を各値を代入しながら、ループを実行させた。すると、出力結果が、毎回変化した。このため、文字列リテラルを含むメソッドを何度も呼び出した場合でも、文字列リテラルの部分が実行されるたびに新しいオブジェクトが生成されることがわかった。
+
+出力結果
+output1
+output2
+output3
+output4
+output5
+output6
+output7
+output8
+output9
+output10
+
+=end

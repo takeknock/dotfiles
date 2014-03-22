@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+#define FOR(i,n) for(int i=0;i<(int)n;++i)
+#define REP(i,n) for(int i=(int)n;i>0;--i)
+int main(){
+    double deg, dis;
+    cin >> deg >> dis;
+    string d1, d2;
+    string hougaku[16]={"N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"}
+    for (int i = 0; i < N; ++i)
+    {
+        
+    }
+/*
+    if(11.25 <= deg && deg <33.75)
+        d1 = "N";
+    else if(33.75 <= deg && deg <56.25)
+        d1 = "NNE";
+    else if(56.25 <= deg && deg <78.75)
+        d1 = "NE";    
+    else if(78.75 <= deg && deg <101.25)
+        d1 = "E";
+    else if(101.25 <= deg && deg <123.75)
+        d1 = "ESE";
+    else if(123.75 <= deg && deg <146.25)
+        d1 = "SE";
+    else if(146.25 <= deg && deg <168.75)
+        d1 = "SSE";
+    else if(168.75 <= deg && deg <56.25)
+        d1 = "NNE";
+*/
+
+
+
+
+    
+	return 0;
+}
+

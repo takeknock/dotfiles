@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+#課題3_4
+class A
+  def am
+    return "クラスAのメソッドamが呼び出された"
+  end
+  protected:am
+end
+
+class B < A
+  def bm
+    am
+  end
+end
+
+class C
+  def cm
+    am
+  end
+end
+y=C.new.cm
+puts y
+
+=begin
+protectedと宣言されたクラスAのメソッドamを、クラスAやそのサブクラスのメソッドでない、別のクラスのメソッドから呼びだすプログラムを作成した。しかし、エラーが発生し、呼び出せないことが確認できた。
+
+出力結果
+kadai3_4.rb:18:in `cm': undefined local variable or method `am' for #<C:0x007fc739089730> (NameError)
+from kadai3_4.rb:21:in `<main>'
+
+=end
+

@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <numeric>
+#include <iomanip>
+#include <climits>
+#include <vector>
+#include <functional>
+#include <cstring>
+#include <list>
+#include <fstream>
+#include <map>
+#include <cmath>
+#include <cctype>
+using namespace std;
+
+typedef long long ll;
+
+#define FOR(i,n) for(int i=0;i<(int)n;++i)
+#define REP(i,n) for(int i=(int)n;i>0;--i)
+int main(){
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i)
+    {
+        int b = 0, c = 0;
+        bool flg = true;
+        for (int j = 0; j < 10; ++j)
+        {
+            int a;
+            cin >> a;
+            if(b>a){
+                if (c>a)
+                {
+                    flg = false;
+                    break;
+                }
+                else{
+                    c = a;
+                }
+            }
+            else
+            {
+                if (c > a)
+                {
+                    b = a;   
+                }else{
+                    if (a-b>a-c)
+                        c = a;
+                    else
+                        b = a;
+                }
+            }
+        }
+        if(flg)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
+    }
+    
+	return 0;
+}
+
