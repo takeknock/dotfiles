@@ -41,6 +41,8 @@ if dein#check_install()
   call dein#install()
 endif
 
+autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
+
 "End dein Scripts-------------------------
 "
 set number
